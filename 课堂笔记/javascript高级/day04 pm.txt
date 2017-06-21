@@ -1,0 +1,138 @@
+正课:
+1. ***RegExp: 
+  reg.exec(str)
+  reg.test(str)
+2. Math
+3. Date
+
+1. ***RegExp对象:
+ 什么是: 封装一条正则表达式,提供了使用正则执行查找和验证的API
+ 何时: 只要使用正则表达式，都要先创建正则表达式对象
+ 创建: 2种:
+   1. 直接量: var reg=/正则表达式/ig;
+     如果正则表达式一旦定义不再改变
+     字符冲突: 正则表达式中的/，都要转义为\/
+   2. 用new: var reg=new RegExp("正则表达式","ig");
+     如果正则表达式本身都需要动态生成
+     字符冲突: 正则表达式中的\和'"都要转义
+       比如: "\\d \\s \\w \" \'"
+ API:
+   1. 高级查找: 即查找每个关键词内容，又查找位置
+      var arr=reg.exec(str);
+       在str中查找下一个符合reg规则的关键词的内容和位置
+      固定套路: 查找每个关键词的内容和位置
+        var arr=null;
+        while((arr=reg.exec(str))!=null){
+          arr: ["关键词",$1,$2,... index:位置]
+                   0
+        }
+      原理: reg对象中有一个lastIndex=0属性,规定了exec下次开始查找的位置——不用手动维护
+     	exec每执行一次，做三件事:
+         1.将关键词内容，放入数组第0个元素
+         2.将关键词位置，放入数组的index属性
+         3.自动将reg的lastIndex+关键词的长度
+              导致下次自动跳过关键词，找下一个
+      强调: 也是一个一个找，每找一个新的，都会替换数组中旧的关键词。
+      简写: 如果只获得分组子内容，不需要完整关键词
+	RegExp.$n -> 可获得本次查找到的第n个分组的子内容
+        while(reg.exec(str)!=null){
+          RegExp.$n
+        }
+
+    练习: 贪婪模式: 默认情况下，正则表达式都会匹配最长的符合条件的子字符串   
+           比如: .*  .+ ...
+      懒惰模式: 让正则表达式仅匹配最短的符合条件的子内容
+           .*?   .+?
+
+   2.验证: var bool=reg.test(str);
+           验证str是否符合reg的要求。
+    问题: test方法，默认只要部分匹配即可
+    解决: 只要验证，必须前加^后加$，要求从头到尾完整匹配
+
+2. Math: 
+  什么是: 专门封装数学计算的常量和API的对象
+    不能new！
+  API: 所有API必须用Math.直接调用
+    1. 取整:
+      Math.ceil(num)  上取整: 只要超过，就取下一个整数 
+      Math.floor(num) 下取整: 只要超过，就抹掉小数部分
+       vs parseInt(str):
+         floor: 参数是number,
+		不能去掉字符串结尾的非数字字符
+         parseInt: 参数是字符串，
+                专门去掉字符串结尾的非数字字符
+           缺: 强行去掉小数部分，会导致误差
+           解决: 首选parseFloat
+      Math.round(num) 四舍五入取整:
+       vs toFixed(d):
+        round: 必须用Math直接调用
+               缺: 只能取整
+               优: 返回值: number 可直接算数计算
+        toFixed(d): 可被任意数字类型的值调用
+               优: 可按任意小数位数四舍五入(0<=d<=20)
+               缺: 返回值: string 先转为number再计算
+
+       自定义round方法: 可按任意小数位数四舍五入
+                        返回number
+
+    2. 乘方和开平方:
+       乘方: Math.pow(底数,幂)，比如: Math.pow(10,2)=100
+       开平方: Math.sqrt(num) 
+       for(var i=2;i<Math.sqrt(num);i++){
+         if(num%i==0){不是质数;break}
+       }
+       是质数
+
+    3. 最大值和最小值: 
+       Math.max(值1,值2,...)
+       Math.min(值1,值2,...)
+        不支持获得数组中的最大值和最小值
+        变通实现: 
+          Math.max.apply(null,arr);//获得arr中的最大值
+            apply也具有打散数组参数的能力
+ 	  Math.min.apply(null,arr);
+    4. 随机数: 
+      0<=Math.random()<1
+      任意max和min之间取随机整数的公式:
+      var r=Math.floor(Math.random()*(max-min+1)+min)
+      在0~max之间取随机整数:
+      var r=Math.floor(Math.random()*(max+1))
+
+3. Date: 
+ 什么是: 封装一个日期,提供对日期执行操作的API
+ 何时: 今后只要保存日期或操作日期，都要使用Date对象
+ 如何: 
+   创建: 3种情况: 
+    1. 创建日期对象，并自动获得客户端当前系统时间:
+      var now=new Date();
+    2. 创建日期对象，保存自定义时间:
+      var date=new Date("yyyy/MM/dd hh:mm:ss");
+               new Date(yyyy,MM-1,dd,hh,mm,ss); 
+    3. 复制一个日期对象: 
+      问题: 日期对象的计算都是直接修改原日期对象
+              修改后，无法保留旧的时间
+      解决: 在计算之前，先将旧时间复制一个副本另存。
+      var date1=new Date(.....);
+      var date2=new Date(date1);//将date1复制一个副本
+
+  日期对象的原理:
+   日期对象中封装的其实是一个1970年1月1日0点至今的毫秒数
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

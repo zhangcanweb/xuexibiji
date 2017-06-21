@@ -1,0 +1,45 @@
+正课:
+1. 类数组对象操作:
+2. ***jQuery UI
+
+1. 类数组对象操作: 
+   .size() 获得jquery对象查询结果中元素的个数
+   .get(i) 获得jquery对象中i位置的DOM元素
+   .index(DOM/jq) 查找元素在jquery对象中的下标位置
+                              经常用于判断是否包含在内
+   .each(callback) 对查询结果中每个元素执行相同的操作         
+      callback(i){this->当前正在遍历的DOM元素->$(this)->jq}
+
+2. ***jqueryUI: 对jquery API的更上层封装，更简化版本
+    只是封装了很多固定的功能和插件。——复用
+    jqueryUI: PC
+    jqueryMobile: 移动设备
+   官网: jqueryui.com
+   如何: 将jquery-ui-1.11.4文件夹拷贝到项目目录(已完成)
+   分三部分: 
+      Effects效果:   
+      Interactions:交互组件
+      Widgets: 小部件
+
+   Effects: 效果: 三大改变
+   addClass/removeClass/toggleClass: 添加了动画效果
+       比如: toggleClass("类名",speed,callback)
+   show/hide/toggle: 添加了更多动画效果：
+      比如: .toggle("效果名",speed)
+      blind(遮蔽) bounce(弹跳) explode(爆炸)...
+   color animation: 实现了颜色动画
+      .animate方法支持颜色动画
+
+   Interactions:交互组件: 
+    1. $("...").draggable(): 让选中的元素可拖拽
+侵入性: 指第三方程序通过修改宿主程序的部分内容，达到效果
+    2. $("...").selectable(): 让目标可选择
+       需要自己实现.ui-selected,选中项的样式
+       可多选
+    3. $("...").sortable();
+    
+   
+
+
+
+

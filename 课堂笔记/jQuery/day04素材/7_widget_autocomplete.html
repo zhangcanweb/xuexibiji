@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Autocomplete</h1>
+	
+	菜品搜索：<input name="search">
+
+  <div class="controlgroup">
+		<button class="btn">BUTTON按钮</button>
+		<input class="btn" type="button" value="INPUT按钮"/>
+		<a class="btn" href="#">A按钮</a>
+	</div>
+
+<!--
+	<form action="9.php">
+	芳龄：<input type="text" name="age" autocomplete="off">
+	<input type="submit">
+	</form>
+-->
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+	<script>
+	  $(".btn").button();
+		$(".controlgroup").controlgroup();
+		var dishList=[
+			"鱼香肉丝",
+			"西红柿鸡蛋",
+			"小鸡炖蘑菇",
+			"宫保鸡丁",
+			"鱼香茄子",
+			"炸花生米"
+		];
+		$("[name='search']").autocomplete(
+			{source:dishList}
+		);
+	</script>
+ </body>
+</html>

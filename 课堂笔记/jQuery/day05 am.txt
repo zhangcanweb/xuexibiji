@@ -1,0 +1,73 @@
+正课:
+1. ***自定义插件: 
+2. cookie
+
+1. ***自定义插件: 
+   何时: 只要一项功能或一个函数，被反复使用。都要将反复使用的函数或功能封装为一个插件。
+   优: 复用——DRY——Reflector重构
+
+   如何: 2种: 
+     1. 为jQuery添加jQuery全局函数
+        什么是: 不依赖于任何具体DOM对象，就可直接调用的jQuery函数。
+        何时: 只要一个函数不需要查找任何DOM对象，就可直接调用时。就要将该函数定义为jquery全局函数
+        如何: 
+          所有jquery的全局函数都定义在jQuery全局对象中
+          jQuery全局对象充当jQuery所有API的命名空间
+          Step1: if(window.$===undefined)
+                         //先判断是否加载了jQuery库
+          Step2: 在jQuery中添加自定义命名空间对象
+                     $.XXXLib={};
+          Step3: 在自定义命名空间中添加自定义扩展方法
+                     $.XXXLib.方法名=function(){...}
+
+          如何调用: 3步: 
+            1. 先引jquery.js
+            2. 再引自定义lib.js
+            3. 调用: $.xxxLib.方法名();
+   
+   鄙视: jQuery全局函数 vs ES的全局函数
+        相同点: 执行，不依赖于某一类具体对象
+        ES的全局函数，存储在全局对象window中
+               不需要任何对象可直接调用
+        jQuery全局函数, 存储在jQuery对象中
+               必须至少使用jQuery.才能调用
+
+   鄙视: $.each(list,callback) vs  $("...").each(callback)
+       相同: 都是对类数组对象中每个元素执行相同操作(callback)
+       不同: 
+            1. 调用方式： 
+               $.each可对任意类数组对象执行操作
+               $("...").each只能对$查询出的结果集合执行操作
+            2. 存储位置: 
+               $.each: 直接存在jQuery对象下
+               $("...").each: jQuery.fn中
+                  jQuery.fn是所有查询结果对象的父对象！
+            3. 称呼: 
+               $.each: jQuery全局函数
+               $("...").each: 称为jQuery对象方法
+
+     2. 为jQuery对象添加插件方法:
+       何时: 只要一项完整的效果/功能需要复用，就要将效果/功能封装为jQuery插件函数
+       如何: jQuery插件函数都要添加到jQuery.fn中
+         不需要动态生成html, 但是事先规定好html的样子
+         div>a/button+ul
+         为组件定义必须的css，保存在专门的css文件中
+         开始为jQuery.fn添加对象dropdown()方法
+            先侵入class
+            再寻找触发事件的元素，绑定处理函数
+	修改class，达到交互的目的
+
+         如何使用: 
+            1. 引入插件的css文件
+            2. 引入jquery.js
+            3. 引入插件的js文件
+            4. 找到父元素，调用插件方法
+               $("...").dropdown();
+
+
+
+
+
+
+
+

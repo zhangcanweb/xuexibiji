@@ -1,0 +1,66 @@
+正课:
+1. Date
+2. ***Error
+
+1. Date: 
+  什么是: 封装一个日期，提供对日期执行操作的API
+  何时: 今后只要保存或操作日期都用Date对象
+  如何: 
+    创建: 4种:
+       1. 获得客户端当前系统时间: 
+           var now=new Date();
+       2. 创建日期对象保存自定义时间:
+           var date=new Date("yyyy/MM/dd hh:mm:ss")
+                           new Date(yyyy,MM-1,dd,hh,mm,ss)
+       3. 复制一个日期:
+           为什么: 日期的计算都直接修改原日期对象
+                       旧时间无法保存
+           何时: 如果需要同时保存计算前后的两个时间时，就必须将原日期复制一个副本再计算。
+           如何: var date2=new Date(date1);
+       4. 直接用毫秒数创建日期对象:
+           var date=new Date(ms)
+
+    原理: Date对象中保存的是1970年1月1日0点至今的毫秒数
+
+    API: 
+       单位: 年FullYear 月Month    日Date        星期Day
+              时Hours    分Minutes  秒Seconds  毫秒MilliSeconds
+      1. 每个单位都有一对儿getXXX/setXXX方法
+          getXXX()方法负责读取指定分量的值:
+            比如: date.getDate(); //获得几号
+          setXXX(n) 方法负责修改指定分量的值: 
+            比如: date.setDate(10); //修改date的日期为10号
+          特例: Day没有set方法，因为星期只读，不可改
+       2. 取值范围: 
+          只有月中的日(Date)从1开始到31结束
+          其余单位都是从0开始，到进制-1结束
+          Month  0~11  比现实中都小1  需要修正
+          Date     1~31
+          Day       0~6    星期日是0，不需要修正
+          Hours   0~23  不用修正
+          Minutes,Seconds 0~59  不用修正 
+
+    日期计算: 
+       1. 两日期相减: 获得毫秒差
+       2. 对任意单位做加减: 3步:
+           1. 取分量: var n=date.getXXX();
+           2. 做加减: n+=?;
+           3. 放回去; date.setXXX(n);
+                              特点: 1. 自动调整进制
+                                       2. 直接修改原日期对象
+           简化版: date.setXXX(date.getXXX()+n)
+
+     转字符串: 
+        .toString() -> 转为中国标准时间(+8区)
+        .toLocaleString() -> 转为系统当前时间格式
+        .toLocaleDateString -> 转为系统当前时间格式
+		             仅包含日期部分
+        .toLocaleTimeString -> 转为系统当前时间格式
+		             仅包含时间部分
+        .toGMTString() -> 转为国际标准时间(0时区)
+
+
+
+
+
+

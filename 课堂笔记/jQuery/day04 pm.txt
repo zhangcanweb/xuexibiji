@@ -1,0 +1,99 @@
+正课:
+1. widgets
+2. 第三方插件:
+    日期插件
+    表单验证插件
+    瀑布流插件
+
+1. widgets: ——小重点
+   所有小部件都有侵入性，使用前必须引入jquery-ui.css
+   1. Accordion手风琴组件
+     如何: 
+        HTML: 父元素>(标题+div)*n
+        JS: $("父元素").accordion();
+   2. autoComplete自动完成
+     如何: 
+        HTML: 一个input文本框
+        JS: 2步: 1. 备选词的数组对象
+                    2. $("文本框").autocomplete({source:数组})
+   3. 补: button()     button,  input,    a
+        $("...").button();
+   4. datepicker: 日期选择: 
+      如何:
+         HTML: input文本框
+         JS: $("文本框").datepicker();
+         优: 可定制
+      HTML5: <input type="date"/>
+        问题:  兼容性
+                 用浏览器底层代码编写不支持定制
+   5. dialog: 对话框: 
+      如何: 
+        html: 父元素 title="对话框的标题">提示的内容
+        js: 
+          如果希望一开始就弹出: $("父元素").dialog(); 
+          如果希望单击才弹出:
+               1. 让对话框默认关闭
+               $("父元素").dialog({autoOpen:false});
+               2. 在按钮的单击事件中打开: 
+               $("父元素").dialog("open");
+               3. 关闭对话框:
+               $("父元素").dialog("close");
+          初始化对话框的按钮: 
+              $("父元素").dialog({
+                   autoOpen:false,
+                   buttons:[
+	     {text:"提交",click:function(){...this->dialog...}},
+                      {text:"取消",click:function(){...}},
+                   ]
+              });
+
+   自学: Menu, prograssbar, slider, spinner
+
+   6. tabs: 标签页: 
+     如何: 
+      html: div父元素>
+                   ul>li*n>a href="#id"
+                   +
+                   div#id*n
+      js: $("父元素").tabs();
+
+   7. toolTip: 工具提示: 
+       只要且必须在$(document)上应用tooltip()
+       统一了页面中所有title提示的样式
+
+2. 第三方插件: 
+   1. 日期插件: layDate: ——不基于jquery
+      html: input文本框  id="xx" class="laydate-icon"
+      js: laydate({elem:"#xx"})
+   2. 表单验证插件: ——重点
+       jquery.validate 基于jquery
+      如何: 
+        js:$("表单").validate(
+            rules:{
+	name1: "required",//必填
+                 name2: {规则1:值,  规则2:值,...}, //同时满足多个规则
+            },
+            messages:{
+	name1: "用户名不能为空",
+                 name2:{
+                     规则1: 提示1,
+                     规则2: 提示2,
+                 }
+            }
+        )
+        扩展自定义验证规则: 
+         jQuery.validator.addMethod("mobile",
+	function(value){
+                     if(value.trim()!=="")
+            	         return /^reg$/.test(value)
+                     return true;
+                 }
+         )
+    
+    3.  Masonry: 瀑布流、彩砖墙
+       $("父元素").masonry();
+
+
+
+
+

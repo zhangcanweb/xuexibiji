@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		body { margin: 0; }
+		.page {
+			position: fixed;
+			left: 0; right: 0; top: 0; bottom: 0;
+		}
+	</style>
+ </head>
+ <body>
+	<div class="page" style="left: 0%; background:#faa;">
+		第一个PAGE<hr>
+	</div>
+
+	<div class="page" style="left: 100%; background:#afa;">
+		第二个PAGE<hr>
+	</div>
+	<div class="page" style="left: 200%; background:#aaf;">
+		第三个PAGE<hr>
+	</div>
+	<div class="page" style="left: 300%; background:#faf;">
+		第四个PAGE<hr>
+	</div>
+
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		//查找第一个class为page的元素
+		$(".page:not(:last)").click(function(){
+		/*
+			//在当前元素启动动画: 2s内 left变到-100%
+			$(this).animate({left:'-100%'},2000)
+			//在当前元素下一个兄弟启动动画: 2s left变回0
+			       .next().animate({left:0},2000);
+		*/
+			$(".page").each(function(){
+				var p=
+					parseFloat($(this).css("left"))
+					-innerWidth;
+				$(this).animate({left: p+"px"},2000);
+			})
+		})
+	</script>
+ </body>
+</html>

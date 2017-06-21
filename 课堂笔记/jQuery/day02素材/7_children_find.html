@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>...</title>
+  <script>
+  </script>
+ </head>
+  
+ <body>
+	<ul class="top">
+		<li class="parent">parent1
+			<ul>
+				<li class="child">child1</li>
+				<li class="child">child2</li>
+				<li class="child">child3</li>
+			</ul>
+		</li>
+		<li class="parent">parent2
+			<ul>
+				<li class="child">child1</li>
+				<li class="child">child2</li>
+				<li class="child">child3</li>
+			</ul>
+		</li>
+	</ul>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$(".top").click(function(){
+			$(this).children()
+		})
+	</script>
+ </body>
+</html>

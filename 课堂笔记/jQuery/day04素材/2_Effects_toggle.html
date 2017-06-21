@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.box {
+			border: 1px solid #aaa;
+			background: #eee;
+			color: #333;
+			padding: 10px;
+			border-radius: 4px;
+			width: 200px;
+		}
+	</style>
+ </head>
+ <body>
+  <h1>jQueryUI-Effects</h1>
+	<h3>新的动画特效</h3>
+  <button>显示隐藏</button><br><br>
+	<div class="box">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem fuga dolorem optio reiciendis et veniam voluptatibus accusamus recusandae ad aliquam. Voluptate alias explicabo facere corporis repudiandae iure deserunt eum ab.
+	</div>
+	<script src="js/jquery-1.11.3.js"></script>
+  <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+	<script>
+		$("button").click(function(){
+			$(".box").toggle("bounce","slow");
+			                 /*explode, highlight, */
+		})
+		$(".box").click(function(){
+			$(this).animate({
+				width:600,
+				backgroundColor:'#f00',
+			  color:"#fff",
+				borderColor:"#0ff"
+			},2000)
+		})
+	</script>
+ </body>
+</html>

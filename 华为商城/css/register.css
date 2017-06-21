@@ -1,0 +1,153 @@
+*{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+body{
+    background-color: #F8F8F8;
+}
+div,p,h1,h2,h3,h4,h5,h6,img{
+    margin:0;
+    padding:0;
+}
+#header{
+    width:998px;
+    height:67px;
+    margin:0 auto;
+}
+#header span{
+    font-size:23px;
+    color:#A499A4;
+    line-height:67px;
+}
+#header #header-logo{
+    padding:12px 0;
+    vertical-align: bottom;
+}
+#header #header-line{
+    padding:22px 0;
+    vertical-align: bottom;
+}
+#main{
+    margin:0 auto;
+    width:998px;
+    min-height:558px;
+    margin-top:30px;
+}
+#main-left{
+    width:640px;
+    height:588px;
+    float: left;
+}
+#main-left img{
+    padding:28px 35px;
+}
+#main-right{
+    float: left;
+    width:358px;
+    min-height:558px ;
+    margin-top:70px;
+}
+#main-right h1{
+    font-size: 30px;
+    color: #ea5e00;
+    font-weight: bold;
+    font-family:  "Microsoft YaHei";
+}
+#main-right .input-control{
+    width: 278px;
+    height:36px;
+    border:1px solid #BCBCBC;
+}
+#main-right .form-control .span-control{
+    font-size: 14px;
+    color:#fff;
+    border:1px solid #eee;
+    background-color: blue;
+}
+#main-right .input-control-Y{
+    width: 143px;
+    height:36px;
+    border:1px solid #BCBCBC;
+}
+#main-right .form-control{
+    margin:15px 0;
+}
+#main-right .form-control img{
+    vertical-align: middle;
+}
+#main-right .form-control span,a{
+    font-size: 12px;
+    color:#333;
+}
+#main-right .form-control .register-check{
+   width:100px;
+}
+#main-right .form-control .cb{
+    vertical-align: middle;
+}
+#main-right .form-control-a{
+    padding-left: 100px;
+}
+#main-right .line-control{
+    width:278px;
+}
+#main-right .form-control button{
+    border:0;
+    width:280px;
+    height:44px;
+    color:#fff;
+    font-weight: bold;
+    line-height: 44px;
+    font-size:18px;
+    background-color: #B40707;
+}
+#main-right .form-control button:hover{
+    cursor: pointer;
+}
+#main-right #form-down .form-control a{
+    color:#FD9937;
+    font-size: 14px;
+    font-weight: bold;
+}
+#main-right #form-down  .san-register{
+    font-size: 12px;
+    color:#999;
+}
+#main-right #form-down  p{
+    width: 288px;
+}
+#footer-line{
+    width:900px;
+    margin:0 auto;
+}
+#footer{
+    width:998px;
+    text-align: center;
+    margin:0 auto;
+    color:#999;
+    margin-top:30px;
+}
+#footer p a{
+    color:#999;
+    font-size: 14px;
+    line-height: 18px;
+}
+#footer p{
+    font-size: 12px;
+    margin:10px 0;
+    height:18px;
+}
+#footer p img{
+    vertical-align: middle;
+    margin:0 10px;
+}
+#footer .footer-a{
+    text-decoration: underline;
+    padding:0 3px;
+}
+

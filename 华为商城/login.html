@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+<div id="header">
+    <div id="header-c">
+        <img src="imgs/login-logo.png" alt=""/>
+        <b>|</b>
+            <span>华为商城</span>
+    </div>
+</div>
+<div id="main">
+    <div id="main-header">
+        <div class="main-header-left">
+            <a href="#" class="phone"><span>手机号</span></a>
+            <a href="#" class="email"><span>电子邮件</span></a>
+        </div>
+        <div class="main-header-right">
+            <span>已有华为账号</span>
+            <a href="#" id="register">登录
+                <sapn></sapn>
+            </a>
+        </div>
+    </div>
+    <div id="main-body">
+        <div id="part-one" class="main-body-s">
+            <h1>注册华为帐号</h1>
+            <p>华为帐号是您用于访问所有华为服务的帐号。使用华为帐号登录后，您将可以使用云服务、华为商城、花粉俱乐部、应用市场、EMUI产品、华为网盘和开发者联盟。</p>
+        </div>
+        <div class="main-body-s">
+            <hr/>
+        </div>
+        <div id="part-two" class="main-body-s">
+            <h3>华为帐号</h3>
+            <p>输入手机号作为您的华为帐号，用于登录、重设密码、验证身份。</p>
+
+            <form action="">
+                <div>
+                    <label for="phone">手机号:</label>
+                    <span><b>+86(中国)</b></span>
+                    <input type="text"  placeholder="输入手机号" required id="phone"/>
+                </div>
+                <div>
+                    <label for="check">验证码:</label>
+                    <input type="text" id="check" placeholder="短信验证码"/>
+                    <a href="#"><button type="submit">获取验证码</button></a>
+                </div>
+            </form>
+        </div>
+        <div class="main-body-s">
+            <hr/>
+        </div>
+        <div id="part-three" class="main-body-s">
+            <h3>设置登录密码</h3>
+            <p>密码由8-32位字符组成，需至少包含一个大写字母、一个小写字母和一个数字，建议不与其他密码相同</p>
+
+            <form action="">
+                <div class="pwd-control">
+                    <label for="pwd">密码:</label>
+                    <input id="pwd" type="text" placeholder="8-32个字符"/>
+                    <div id="pwd-strength">
+                        <span class="pwd-strength-1">弱</span>
+                        <span class="pwd-strength-2">中</span>
+                        <span class="pwd-strength-3">强</span>
+                    </div>
+                </div>
+                <div>
+                    <label for="check-pwd">确认密码:</label>
+                    <input type="text" id="check-pwd" placeholder="8-32个字符"/>
+                </div>
+            </form>
+        </div>
+        <div class="main-body-s">
+            <hr/>
+        </div>
+        <div id="part-four" class="main-body-s">
+           <h2>华为帐号服务条款</h2>
+           <h3>国家/地区</h3>
+           <p>您正在注册中国的华为帐号</p>
+        </div>
+        <div class="main-body-s">
+            <hr/>
+        </div>
+        <div id="part-five" class="main-body-s">
+           <h2 class="five-1">华为将为您创建唯一的华为帐号，来标识您和提供更优服务，且需搜集和处理以下信息：</h2>
+           <h3 class="five-2">您所有登录的设备信息，包括：IMEI、IMSI、SN、国家/地区、语言、型号和版本号；</h3>
+           <h3 class="five-2">您向我们提交的个人信息，包括：手机号、邮件地址、密码、头像、昵称、生日、姓名和性别；</h3>
+           <h4 class="five-3">上述数据将会传输并保存至华为全球的服务器。您可通过销户删除所有个人数据。</h4>
+            <p class="five-3">华为帐号用户可以通过手机号或邮件地址搜索到您，并可查看您的公开信息，包括：头像、昵称、城市等。您也可以在华为帐号的设置中关闭。</p>
+            <p class="five-3">点击“注册”，即表示您同意上述内容及<a href="#">华为账号用户协议</a>并确认您已阅读<a href="#">华为隐私政策</a>
+            </p>
+        </div>
+        <div class="main-body-s">
+            <hr/>
+        </div>
+        <div id="part-six" class="main-body-s">
+            <a href="#"><button type="submit" class="btn">
+                立即注册
+            </button></a>
+        </div>
+    </div>
+</div>
+<div id="footer-line">
+    <hr/>
+</div>
+<div id="footer">
+    <p>
+        <a href="#" class="footer-a">华为隐私政策</a>
+        <a href="#" class="footer-a">华为账号用户协议</a>
+        <img src="imgs/line.png" alt=""/>
+        <a href="#">常见问题</a>
+    </p>
+    <p>Copyright©2011-2016 华为技术有限公司 版权所有 保留一切权利苏B2-20070200号 | 苏ICP备09062682号-9</p>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

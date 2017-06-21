@@ -1,0 +1,131 @@
+正课:
+1. 什么是:
+2. 如何使用:
+3. ***选择器: 
+
+1. 什么是: 
+   jQuery是一个快速的，简洁的javascript库。
+  为什么: 2个原因: 
+     1. 对DOM的终极简化: 
+         核心DOM: 万能，繁琐
+         HTML DOM: 简单，不是万能
+         jquery: 4个方面提供了极简化的操作
+              1. 查找和操作元素(增，删，改，查)
+              2. 事件处理
+              3. 动画效果
+              4. AJAX操作
+     2. 屏蔽了99%的浏览器兼容性问题
+         只要jquery允许使用的，都是没有兼容性问题。
+ 何时: 今后，绝大多数公司和前端框架都是利用jquery开发的。
+
+口号: write less, do more
+
+2. 如何使用: 
+  版本: 
+     1. 1.x:  特点: 兼容IE8 
+         2个文件: 
+            1. jquery-1.11.3.js: 未经压缩的可读性良好的js
+            2. jquery-1.11.3.min.js: 经过代码压缩的最小的js
+                 去掉了所有注释，空白字符，换行。。。
+     2. 2.x:  特点: 不再兼容IE8 
+
+  环境准备: 
+    1. zen coding(ZC)->勾选Tab to expend和use emmit
+       标签名+Tab: 不全单个标签的属性和结束标签
+       标签名*n+Tab: 同时生成n个标签，并不全属性和结束标签
+       
+       标签名#id值+Tab: 自动生成id属性
+       标签名.class值+Tab: 自动生成class属性
+       标签名[属性名="值"]+Tab
+       标签名#id值.class值+Tab: 自动生成id属性和class属性
+
+       父标签>子标签+Tab: 自动生成父元素和子元素
+       兄弟标签+下一个兄弟标签+Tab: 自动生成多个平级的兄弟
+       
+       ()可提高优先级+Tab！
+    2. 随机生成一段假文: lorem+Tab
+    3. 常用快捷键: 
+        Tools->preference->tools->key board->Edit
+        delete line: ctrl+d
+        duplicate line: ctrl+alt+↓
+        move up/donw : alt+↑/↓
+        line comment/uncomment: ctrl+/ ， ctrl+alt+/
+
+   如何使用jquery: 
+   1. 引入jquery.js: <script src="jquery-1.11.3.js"></script>
+         强调: 必须在自定义script之前，先引入jquery.js
+   2. ***jQuery对象: 
+       什么是: 封装一个/一组DOM元素，并提供对DOM元素执行操作的简化版API 的类数组对象。
+       为什么: 普通DOM对象无法使用jquery中简化版API
+                   只有jQuery对象才能使用！
+       何时: 只要调用任何jqueryAPI之前必须先获得jQuery对象: 
+       如何:  2种:
+          1. 先用DOMAPI获得DOM对象，再用jQuery工厂函数生成一个jQuery对象
+               var $jQuery对象=jQuery(DOM对象)
+                  jQuery/$函数也称为工厂函数
+          2. 直接用jquery简化版API查找，自动获得的就是jQuery对象。
+      其实, jQuery可简写为$
+      万一jquery不支持了，希望使用DOM原生API: 
+        从jquery对象中取出DOM 对象: 
+	var dom对象=$jq对象.get(i)
+
+   鄙视: DOM对象 vs jq对象
+     DOM对象: 由W3C的DOM标准规定的，浏览器厂商负责实现的现成对象。
+          使用DOM API —— 万能，繁琐
+     jq对象: 由第三方jquery.js库定义的，并提供了简化操作DOM的API的 类数组对象
+          使用jQuery API——终极简化, 解决浏览器兼容性问题
+
+     两套API无法通用！
+
+3. ***选择器: 
+   今后，都是先找元素，再调用jqueryAPI操作元素
+   只要用jquery找元素，都用选择器！
+   用jquery查找元素，返回的直接就是jquery对象，无需再封装
+   
+   如何: var $jq对象=$("选择器")
+
+   基本选择器: 5个: #id  .class  elem  *   选择器1,选择器2,...
+   层级选择器: 4个: 选择器1  选择器2    >    +     ~
+  
+   练习: jQuery事件绑定: $("selector").事件名(function(){...})
+           访问元素的css样式: 
+              $("selector").css("css属性名")
+                  读取选中元素的css属性
+              $("selector").css("css属性名",值)
+                  修改选中元素的css属性为"值"
+       强调: jquery多数简化版API都自带forEach功能: 
+               $("selector").css("css属性名",值)
+                  相当于对找到的每个元素都执行css操作！
+               $("selector").事件名(function(){...})
+                  相当于对找到的每个元素都绑定事件！
+
+   过滤选择器: 通过特定的过滤规则筛选出所需的DOM元素
+          包含: 基本过滤(位置过滤), 内容过滤, 可见性过滤, 
+                   属性过滤, 子元素过滤和表单过滤
+***基本过滤: 位置过滤。根据元素在查找结果中的位置来选择
+         何时: 只要选择特定位置的元素时，都用基本过滤选择器
+         强调: 和css中的:first-child...伪类完全不一样！
+         包括: 
+           :first   选择查找结果中排在第一个位置的元素
+               不考虑元素在父元素下的位置，仅考虑在jquery对象中的下标位置。
+                vs :first-child  作为父元素下第一个子元素的元素
+           :last   选择查找结果中排在最后位置的一个元素
+                vs :last-child   作为父元素下最后一个子元素的元素
+           :even/odd: 选择查找结果中排在偶数或奇数位置的元素
+                下标从0开始: 
+                vs :nth-child(even):  下标从1开始
+	  作为父元素下偶数位置的子元素
+           :eq(i): 选择查找结果中i位置的一个元素，i从0开始
+                vs :nth-child(i): 下标从1开始
+                   作为父元素下第i个子元素
+
+           :gt(i): 选择查找结果中i位置之后的所有元素
+           :lt(i): 选择查找结果中i位置之前的所有元素
+
+     练习: 每个jqureyAPI默认都返回最初的查找结果对象本身
+              $("selector").css("...",...).css("...",...)....
+              链式操作
+
+
+
+

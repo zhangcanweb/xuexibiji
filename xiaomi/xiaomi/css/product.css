@@ -1,0 +1,475 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font: 14px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;;
+}
+div,p,h1,h2,h3,h4,h5,h6,ul,li,img,input{
+    margin: 0;
+    padding: 0;
+}
+.pull-left{
+    float: left;
+}
+.pull-right{
+    float: right;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
+}
+.list-unstyle{
+    list-style: none;
+}
+ul li{
+    float: left;
+}
+.text-right li{
+    text-align: right;
+}
+
+
+
+/****************header-top********************/
+#header-top{
+    width:100%;
+    height:40px;
+    background-color:#FF6700;
+}
+#header-top-t{
+    width:1226px;
+    margin: 0 auto;
+}
+#header-top-t ul  li{
+    width:100px;
+}
+#header-top-t ul  li a{
+    line-height: 40px;
+    color:#fff;
+
+}
+#header-top-t  #welcome a:hover{
+    text-decoration: none;
+    cursor: default;
+}
+#header-top-t  #welcome{
+    width: 200px;
+}
+#header-middle{
+    width:
+    1226px;
+    height:80px;
+    margin: 0 auto;
+    margin-top:20px;
+}
+#header-middle img{
+    background-color: #FF6700;
+    margin: 12px 0;
+    vertical-align: middle;
+}
+#search{
+    position: relative;
+}
+#search input{
+    width:400px;
+    height:40px;
+    margin: 20px 0;
+    margin-left:350px;
+    display: inline-block;
+    border: 1px solid #FF6700;
+    vertical-align: middle;
+}
+#search span{
+    display: inline-block;
+    width:40px;
+    height:40px;
+    border: 1px solid #FF6700;
+    position: absolute;
+    background: url(../img/ico-1.png) no-repeat
+    -225px -378px;
+    right:0;
+    top:20px;
+}
+#search span:hover{
+    background-color: #FF6700;
+}
+#my-car{
+    height:50px;
+    width:150px;
+    border:1px solid #FF6700;
+    margin:10px 0;
+    color:#333;
+    text-align: center;
+    position: relative;
+}
+#my-car:hover #car-jump{
+    display: block;
+}
+#my-car:hover{
+    cursor: pointer;
+    background-color: #30F197;
+}
+#my-car span{
+    line-height: 50px;
+}
+#my-car b{
+    background: url(../img/ico-1.png) no-repeat
+    -265px 0;
+    display: inline-block;
+    width:35px;
+    height:30px;
+    position: relative;
+    top:10px;
+}
+#car-jump{
+    width:300px;
+    height:60px;
+    border:1px solid #FF6700;
+    position: absolute;
+    right:-1px;
+    top:48px;
+    display: none;
+    background-color: #30F197;
+}
+#navbar{
+    width:1226px;
+    margin:0 auto;
+    background-color: #5C4533;
+    height:50px;
+    background-color: #333;
+
+}
+#nav-all{
+    width:326px;
+    height: 50px;
+    position: relative;
+}
+#nav-all:hover{
+    cursor: pointer;
+}
+#nav-all:hover #nav-down{
+display: block;
+}
+#nav-down{
+position: absolute;
+display: none;
+}
+#nav-all span{
+    width: 100%;
+    display: inline-block;
+    line-height: 50px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    height: 50px;
+    padding-left:100px ;
+}
+#nav-all a:hover{
+    text-decoration: none;
+}
+#nav-all a{
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 50px;
+
+}
+#nav-down li:hover{
+    background-color: #FF6700;
+}
+#nav-list li{
+    float: left;
+    width:100px;
+    text-align: center;
+    background-color: #333333;
+}
+#nav-list li a{
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 50px;
+
+}
+#nav-list li a:hover{
+    text-decoration: none;
+}
+#navbar #nav-list  li:hover{
+    background-color: #FF6700;
+}
+#nav-down li a:hover{
+    text-decoration: none;
+}
+#nav-down{
+    position: relative;
+    z-index: 1;
+}
+#nav-down li{
+    width:326px;
+    height:46px;
+    background-color: #5C4533;
+    text-align: left;
+    padding-left:100px;
+}
+#nav-jump-p{
+    position: relative;
+}
+#nav-jump-p:hover #nav-jump{
+    display: block;
+}
+#nav-jump{
+    width:326px;
+    height:460px;
+    position: absolute;
+    left:326px;
+    top:0;
+    background-color: #999;
+    display: none;
+}
+#nav-down #nav-jump-p #nav-jump li{
+    background-color:#999;
+}
+#nav-down #nav-jump-p #nav-jump li:hover{
+    background-color: #30F197;
+}
+#footer{
+    width: 1226px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+#footer>ul>li ul li{
+    float: none;
+}
+#footer>ul>li{
+    width: 245px;
+    height:250px;
+}
+#footer>ul>li h2{
+    font-size: 16px;
+    color: #000;
+    position: relative;
+    left: 110px;
+}
+#footer>ul>li li{
+    margin: 20px 0;
+}
+#footer>ul>li li a{
+    font-size: 14px;
+    color:#999;
+    position: relative;
+    left: 110px;
+}
+#footer>ul>li li a:hover{
+    color: #FF6700;
+    text-decoration: none;
+}
+#footer p{
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    margin: 20px 0;
+}
+#footer p a{
+    font-size: 16px;
+    color: #000;
+}
+#footer div{
+    text-align: center;
+    margin: 30px 0;
+}
+#footer p a:hover{
+    color:#FF6700;
+}
+/***************主体-body-top********************/
+#body{
+    background-color: #F5F5F5;
+    overflow: hidden;
+    margin-top:30px;
+    margin-bottom: 30px;
+}
+#body-top{
+    width: 1226px;
+    margin:0 auto;
+    height:50px;
+    color:#999;
+    line-height: 50px;
+
+}
+/*****************主题-body-title**********************************/
+#body-title{
+    width: 1226px;
+    margin:0 auto;
+    height: 50px;
+    background-color: rgba(255,255,255,1);
+    line-height: 50px;
+}
+#body-title ul li:first-child a{
+    color:#FF6700;
+}
+#body-title ul li{
+    width: 136px;
+}
+#body-title  li a{
+    color: #999;
+    font-size: 14px;
+}
+/********************************************************************/
+#body-big-pic{
+    width: 1226px;
+    margin: 0 auto;
+    margin-top:30px;
+}
+/***************************产品列表****************************************/
+#body-product{
+    width:1226px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+#body-product ul li{
+    margin-bottom: 10px;
+    min-height: 500px;
+    width:608px;
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+}
+#body-product ul li:nth-child(odd){
+    margin-right: 10px;
+}
+#body-product h2{
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    font-size: 20px;
+    color:#333;
+    line-height: 30px;
+}
+#body-product h2 b{
+    color: #FF6700;
+}
+#body-product p{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #999;
+    margin:10px 0;
+}
+#body-product span{
+    display: inline-block;
+    width:100px;
+    height: 30px;
+    font-size: 16px;
+    border:1px solid #999;
+    color: #333;
+    position: absolute;
+    left: 254px;
+    text-align: center;
+    line-height: 30px;
+}
+#body-product span:hover{
+    background-color: #FF6700;
+    cursor: pointer;
+}
+/**********************************************************/
+.body-pic-list{
+    width:1226px;
+    margin: 0 auto;
+    margin-bottom:10px;
+}
+/****************************硬件产品展示*****************************/
+#hard-list{
+    width: 1226px;
+    background-color: rgba(255,255,255,1);
+    margin:0 auto;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+#hard-list h2{
+    width: 100%;
+    height:50px;
+    line-height: 50px;
+    font-size: 30px;
+    text-align: center;
+    margin-top:20px;
+    color: #666;
+}
+#hard-list p{
+    font-size: 16px;
+    color:#999;
+    width:100%;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+}
+#hard-list div{
+    width: 100%;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+}
+#hard-list div a{
+    font-size:16px ;
+    color:#FF6700;
+}
+/**********************************************************/
+#hard-list-p{
+    width:100%;
+}
+#hard-list-p li{
+    width: 408px;
+}
+#hard-list-p li h4{
+    color:#333;
+}
+/***************************图片上方文字******************************/
+#body-last-pic{
+    position: relative;
+}
+#body-pic-txt{
+    background-color: rgba(75,72,63,0.2);
+    position: absolute;
+    width:100%;
+    height:200px;
+    bottom: 0;
+    color: #ffffff;
+}
+#body-pic-txt h3{
+    font-size: 20px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 10px 0;
+}
+#body-pic-txt p{
+    font-size: 16px;
+    text-align: center;
+    margin:20px 0;
+}
+#body-pic-txt div{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+}
+#body-pic-txt div span{
+    display: inline-block;
+    width:100px;
+    height:30px;
+    line-height: 30px;
+    color: #FF6700;
+    border: 1px solid #FF6700;
+    background-color: #30F197;
+}
+#body-pic-txt div span:hover{
+    cursor: pointer;
+    color: #ffffff;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+正课: 
+1. ***选择器:
+    过滤: 
+       子元素过滤:
+       表单选择器:
+       表单属性过滤选择器: 
+2. 基本操作: 
+   修改: 访问属性: 标准属性; css样式
+
+
+1. ***选择器:
+  过滤选择器:
+    子元素过滤: 其实就是CSS中的位置伪类:
+       :first-child    :last-child     :nth-child(n)    :only-child
+       选择作为父元素下指定位置的子元素
+       强调: :nth-child(n) n从1开始
+    vs 基本过滤(位置过滤): 下标从0开始
+       先查找所有符合条件的元素，再选择结果集合中指定位置的元素
+
+  表单选择器: 根据表单元素的标签名和type属性值来选择表单中的元素
+     包括:  :input选择所有input, textarea, select, button
+         :type类型: 选择指定type类型的表单元素
+            比如: :text 选择单行文本框
+                     :password
+                     :radio   :checkbox
+                     :submit  :reset :button
+                     :image
+                     :file
+                     :hidden
+         其实是: [type="xxxx"]的简化写法
+  表单属性过滤选择器: 其实就是css中的状态伪类:
+      :disabled   :enabled    :checked     :selected
+
+  练习: 访问标准属性: 
+              获取: $("...").attr("标准属性名")
+              修改: $("...").attr("标准属性名",值)
+                 不能访问三大状态属性: 
+	    selected checked disabled
+                 $("...").prop("标准属性名")
+                 $("...").prop("标准属性名",值)
+                     
+2. 基本操作: 
+   内容: 
+       html内容: $("...").html() -> elem.innerHTML
+                        $("...").html("html代码片段") ->
+		elem.innerHTML="html代码片段"
+            清空内容: $("...").empty(); -> elem.innerHTML=""
+       文本内容: $("...").text() -> elem.textContent
+                       $("...").text("文本") -> elem.textContent=文本
+    表单元素的内容: $("...").val() -> input.value
+                               $("...").val(值) -> input.value=值
+       
+   属性: $("...").attr("属性名") -> getAttribute("属性名");
+            $("...").attr("属性名",值) -> setAttribute("属性名",值)
+            $("...").removeAttr("属性名") ->removeAttribute(...)
+            访问状态属性: 
+            $("...").prop("属性名")
+            $("...").prop("属性名",值)
+   样式: 
+      1. 直接访问CSS样式属性: 
+        只访问一个单独的css属性: 
+        $("...").css("css属性名") -> 获取的就是计算后的样式！
+	getComputedStyle(elem).css属性名    
+        $("...").css("css属性名",值)-> 仅设置内联样式
+                 elem.style.css属性名=值
+        同时修改多个css属性: 
+        $("...").css({
+            css属性名:值,
+            css属性名:值,
+            ...
+        })
+     问题: 不便于大项目维护
+     解决: 大型项目中都要用操作class来代替操作单个样式属性
+    2. 通过操作class来操作样式: 
+     $("...").hasClass("类名") 判断是否包含指定类型
+     $("...").addClass("类名") 为选中的元素追加指定类名
+     $("...").removeClass("类名") 移除选中的元素上的类名
+     $("...").toggleClass("类名") 在有与没有指定类名之间切换
+         相当于: 如果$("...").hasClass("类名")
+                         $("...").removeClass("类名")
+                     否则
+                         $("...").addClass("类名")
+       
+
+
+
+
+
+

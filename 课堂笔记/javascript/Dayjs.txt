@@ -1,0 +1,344 @@
+﻿Javascript Basic
+*********************
+1、Javascript  概述(了解)
+2、Javascript 基础语法(重点)
+3、变量和常量(重难点)
+4、数据类型
+***********************
+1、Javascript 概述
+	1、什么是Javascript
+		Javascript，简称为 JS
+		是一种运行与JS解释器/引擎中的解释型脚本语言
+		运行环境：
+			1、独立安装的JS解释器(NodeJS)
+			2、嵌入在[浏览器]内核中JS解释器
+		解释型：
+			运行之前是不需要编译的，运行之前不会检查错误，直到碰到错误为止。
+		编译型：
+			对源码进行编译，还能检查语法错误
+
+		JS使用场合：
+			PC机，手机，平板，机顶盒
+	2、JS发展史
+		1、1992年，Nombas 为自己的软件 开发了一款脚本语言 ScriptEase，可以嵌入在网页中的。
+		2、1995年，Netscape(网景) 开发了 LiveScript,更名为 Javascript，与Java 没有任何关系的。
+		3、1996年，Microsoft ， IE3.0 发布了 JS克隆版 --> JScript
+		4、1997年，JS1.1版本 被作为 草案 提交给了 ECMA(欧洲计算机制造商协会)，ECMAScript(ES)标准
+	3、JS组成
+		完整的JS是由三部分组成：
+			1、核心(ECMAScript)
+			2、文档对象模型(DOM,Document Object Model)
+				让JS有能力与网页进行对话
+			3、浏览器对象模型(BOM,Browser Object Model)
+				让JS有能力与浏览器进行对话
+	4、JS特点
+		1、开发工具简单，记事本即可
+		2、无需编译，直接由JS引擎负责执行
+		3、弱类型语言
+			由数据 来决定 数据类型
+		4、面向对象
+
+		用途：
+		1、客户端(浏览器)
+			1、客户端数据计算
+			2、表单控件输入验证
+			3、浏览器的事件触发和处理
+			4、网页特效
+			5、服务器异步数据提交
+		2、服务器端
+			1、分布式运算
+			2、实时服务器
+			3、窗口应用
+			4、网络应用
+2、JS基础语法
+	1、浏览器内核
+		1、作用
+			负责页面内容的渲染。
+			内核主要由两部分组成：
+			1、内容排版引擎
+				解析HTML和CSS
+			2、脚本解释引擎
+				解析Javascript
+			1、Microsoft IE
+				内核：Trident
+				内容排版引擎：-
+				脚本解释引擎：Chakra
+			2、Mozilla Firefox
+				内核：Gecko
+				内容排版引擎：-
+				脚本解释引擎：Monkey(猴子)系列
+			3、Apple Safari
+				内核：Webkit
+				内容排版引擎：Webcore
+				脚本解释引擎：Nitro
+			4、Google Chrome
+				内核：Webkit
+				内容排版引擎：Webcore
+				脚本解释引擎：V8
+			5、Opera
+				内核：Presto
+				内容排版引擎：-
+				脚本解释引擎：Carakan
+
+				2013年之后：
+				内核：Webkit
+				内容排版引擎：Webcore
+				脚本解释引擎：V8
+	2、JS运行环境
+		1、独立安装JS引擎
+			NodeJS
+
+			console.log("Hello World");
+			向控制台 打印一句话
+		2、嵌入在浏览器内核中的引擎
+			1、直接在浏览器Console中输入并执行JS
+			2、将JS脚本嵌入在HTML页面中执行
+				1、将JS代码嵌入在元素"事件"中
+					1、事件
+						onclick : 当单击元素时所做的操作
+
+						<div id="" onclick="JS代码">xxx</div>
+				2、将JS代码嵌入在<script>标记中
+					1、<script></script>
+						允许出现网页的任意位置处
+				3、将JS代码写在外部脚本文件中(**.js)
+					1、创建 js 文件，并编写JS代码
+						***.js
+					2、在页面中 引入 js文件
+						<script src="js文件路径"></script>
+						注意：
+							<script src=""></script>
+							该对标记中，是不允许出现任何内容的
+
+							<script src="a.js">
+								console.log();
+							</script>
+							以上代码是错误的。
+	3、JS调试
+		1 、JS的代码错误
+			解释型语言：
+				如果某行代码出现错误，则终止解释器的此次执行，但是不会影响后续块的执行，以及后续的HTML元素的解析。
+	4、语法规范
+		1、语句
+			允许被JS引擎所解释的代码
+			使用 分号 来表示结束
+				console.log();
+				document.write();
+			大小写敏感
+				console.log(); 正确
+				Console.log(); 错误
+			英文标点符号
+				console.log(""); 正确
+				console.log（“”）；错误
+			由表达式、关键字、运算符 组成
+		2、注释
+			单行注释: //
+			多行注释: /*  */
+3、变量 和 常量
+	1、变量
+		1、什么是变量
+			1、问题 ：向银行存100块钱，每年的利息是10%,求：10年之后本息是多少??
+
+			内存：保存程序在运行过程中，所需要用到的数据。
+
+			8bit = 1byte
+			1024byte = 1KB
+			1024KB = 1MB
+			1024MB = 1GB
+			1024GB = 1TB
+
+			变量：就是内存中的一段存储空间
+			变量名：内存空间的别名，可以自定义
+			值：保存在 内存空间中的数据
+		2、变量的声明
+			1、语法
+				声明：
+				var 变量名;
+				赋值：
+				变量名=值;
+
+				注意：声明过程中，尽量不要省略 var 关键字，否则声明的是"全局变量"
+
+				ex:
+					1、声明一个变量，保存 学员的年龄,值为 25
+					var age;
+					age=25;
+
+				声明并直接赋值：
+				var 变量名=值;
+				ex:var age=25;
+
+				使用：
+					在 console.log() 或 document.write() 使用变量名 取代 ""
+					ex:打印 变量 stuName 的值到控制台上
+						var stuName="SF.ZH";
+						console.log(stuName); -- SF.ZH
+						console.log("stuName"); -- stuName
+			2、一次性声明多个变量并赋值
+				语法：
+					var 变量名1,变量名2,...变量名n;
+					var stuName="SF.ZH",stuAge=25,stuGender,stuHeight;
+					等同于
+					var stuName="SF.ZH";
+					var stuAge=25;
+					var stuGender;
+					var stuHeight;
+			3、变量名 命名规范
+				1、不允许使用JS的关键字和保留关键字
+				2、由字母、数字、下划线以及$组成
+					var stuName;
+					var stuName1;
+					var stu_name;
+					var stu$name;
+				3、不能以数字开头
+					var stuName1;
+					var 1stuName;错误
+					var $stuName;正确
+				4、尽量见名知意
+					var a,b,c,d,ab,ac,ad;
+					var stuName,stuAge; 更推荐
+				5、可以采用"匈牙利命名法","驼峰命名法","下划线命名法"
+					1、匈牙利
+						控件简写+作用
+						txtName
+					2、驼峰命名法
+						变量名为合成词时，第一个单词全小写，从第二个单词开始，每个单词首字符变大写
+						var stuName;
+
+						如果只有一个单词作为变量名，全小写
+						var age;
+					3、下划线命名法
+						var _age;
+			4、变量的使用
+				1、未经初始化的变量
+					ex:
+						var stuName="张三丰";
+						console.log(stuName);
+
+						var stuAge;
+						console.log(stuAge);
+					变量声明后，从未赋值，称之为 未经初始化变量，值为 undefined
+				2、使用 未声明的变量
+					变量未被定义过，直接打印或使用
+					console.log(stuGender);
+					结果为错误
+				3、对变量进行的存取操作
+					1、获取变量的值-GET操作
+						只要变量名不出现在=的左边，都是取值
+						var stuName="SF.ZH";//赋值
+						console.log(stuName);//取值
+
+						var oldName=stuName;
+						针对 stuName 来讲：取值
+						针对 oldName 来讲：赋值
+					2、保存(设置)变量的值-SET操作
+						赋值运算符：=
+						变量出现在 = 的左边，一定是赋值
+						var stuAge=25;
+						var stuName="sf.zh";
+						var oldName=stuName;
+
+						注意：
+							=出现的话，永远都是将=右边的东西保存给=左边的变量。
+							=左边必须是变量
+
+							var stuAge=30;//将 30 保存在 变量 stuAge中
+
+							35=30;//将30保存在35中,错误!!!!
+	3、常量
+		1、什么是常量
+			量：数据
+			常量：一旦声明好，就不允许在程序运行过程修改的数据
+
+			表示 常理性数据的时候可以用 常量表示
+			ex:
+				π
+				一周七天
+				一年365天或366天
+		2、声明常量
+			const 常量名=值;
+			注意：
+				1、要求在声明常量时必须赋值
+				2、通常情况，常量名尽量全大写
+		3、练习
+			声明一个变量(r)，用来表示 一个圆的半径
+			计算该圆的周长，并且保存在变量l中，打印输出 l=2πr  l=2*π*r;
+			计算该圆的面积，并且保存在变量s中，打印输出 s=πrr  s=π*r*r;
+			π 要用 常量来表示				
+4、数据类型
+	1、问题
+		要保存一个人的年龄，要在内存中开辟多大的空间
+		var age=89;
+		要保存一个人的姓名，要在内存中开辟多大的空间
+	2、数据类型分类
+		1、原始类型(基本类型)
+			1、数字类型
+				number类型
+				可以表示32位的整数以及64位的浮点数
+				整数：32位即4字节
+				浮点数：即小数，64位，8字节
+
+				整数：
+					十进制：生活中常用数字
+					八进制：逢八进一
+						var n1=0123;
+					十六进制：逢16进1
+						0-9 A-F 组成
+						var n2 = 0x123;
+				小数：
+					var n1 = 34.56;
+					var n2 = 4.5e10;
+			2、字符串类型
+				string 类型
+				表示一系列的文本字符数据
+				由Unicode字符，数字，标点组成
+					Unicode 下所有的 字符，数字，标点 在内存中 都占2字节
+
+					"张".charCodeAt().toString(16)
+					查看 字符 "张" 的 十六进制 表现方式
+					结果为：5f20
+
+					var s="\u5f20";将 16进制数字 转换哪位字符串
+
+					\u4e00 : 汉字的起始字符
+					\u9fa5 : 汉字的结束字符 
+				转义字符：
+					1、\n
+						换行
+					2、\r
+						回车
+					3、\t
+						一个制表符
+					4、\"
+						"
+					5、\'
+						'
+					6、\\
+						\
+			3、布尔类型
+				boolean类型
+				作用：
+					用于表示 条件的结果
+				取值：
+					true : 真，肯定的结果
+					false : 假，否定的结果
+				ex
+					var r1 = true;
+					var r2 = false;
+			除条件判断外，做运算时，true可以当做1运算，false当做0运算
+			4、空
+				声明对象未赋值
+				null
+			5、未定义
+				undefined
+				1、声明变量未赋值
+				2、访问对象不存在的属性
+		2、引用类型
+			...
+
+
+
+
+
+
+

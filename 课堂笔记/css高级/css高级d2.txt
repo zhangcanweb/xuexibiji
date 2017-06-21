@@ -1,0 +1,302 @@
+﻿ 1、转换
+2、过渡
+3、动画
+4、CSS 优化
+************************
+1、转换
+	1、转换的简介
+		1、什么是转换
+			改变元素在网页中的位置，大小，角度，形状的一种特殊效果
+
+			元素可以实现2D转换以及3D转换
+			2D：使元素在x轴和y轴上进行变化
+			3D：在2D基础上，增加一个 z轴上的变化
+		2、转换属性
+			属性：transform
+			取值：
+				1、none
+				2、transform-functions
+					表示一个或者多个"转换函数",多函数间，用空格分开
+
+					ex:
+						transform:移动函数 形状函数;
+		3、转换的原点
+			默认的转换原点：元素的中心点位置处，即x轴的50%,y轴的50%
+			属性：transform-origin
+			取值：
+				1、取两个值
+					表示 x轴 和 y轴的位置
+					transform-origin:0px 0px;
+					transform-origin:0% 50%;
+					transform-origin:center center;
+				2、取三个值
+					表示 x轴，y轴和z轴的位置
+	2、转换-2D转换
+		1、2D位移
+			1、什么是位移
+				改变元素在页面上的位置
+			2、属性 和 函数
+				属性：transform
+				函数：
+					translate(x)
+						改变元素在x轴上的位置
+						x取值为正，向右移动
+						x取值为负，向左移动
+					translate(x,y)
+						改变元素在x和y轴上的位置
+						y取值为正，向下移动
+						y取值为负，向上移动
+					单向位移函数：
+					translateX(x) --> translate(x)
+					translateY(y) --> translate(0,y)
+
+				取值：
+					1、数值
+					2、百分比
+		2、2D缩放
+			1、什么是缩放
+				改变元素的大小尺寸
+			
+			2、属性 和 函数
+				属性：transform
+				函数：
+					scale(value) --x轴 和 y轴 等比例缩放
+					scale(x,y) 
+				取值：
+					默认值 ：1
+					缩小：0-1之间的小数
+					放大：大于1的数值
+				单向缩放函数：
+					scaleX(x)
+					scaleY(y)
+		3、2D旋转
+			1、什么是旋转
+				改变元素的 角度
+			2、属性 和 函数
+				属性：transform
+				函数：rotate(ndeg)
+					n :
+						取值为正 ， 顺时针旋转
+						取值为负 ， 逆时针旋转
+
+				注意：
+					1、元素旋转时，坐标轴也跟着转
+						可能会影响后续的位移操作
+					2、转换原点会影响最终的转换效果
+		4、2D倾斜
+			1、什么是倾斜
+				改变元素形状的一种方式
+			2、属性 和 函数
+				1、属性 
+					transform
+				2、函数
+					skew(x)
+					skew(x,y)
+					单向倾斜：
+					skewX(x)
+						沿x轴的倾斜，实际上是改变y轴的倾斜角度(逆时针)
+					skewY(y)
+						沿y轴的倾斜，实际上是改变x轴的倾斜角度(顺时针)
+	3、转换-3D转换
+		1、2D与3D的不同
+			空间距离
+		2、属性 ：perspective
+			假定人眼 到 投射平面的距离
+			浏览器兼容性：
+				Chrome&Safari ：-webkit-perspective
+			注意：
+				该属性要加在 3d 转换元素的父元素上。
+		3、3D转换-旋转
+			元素在 x轴，y轴，z轴分别做旋转操作
+			属性 和 函数
+			属性：transform
+			函数：
+				rotateX(xdeg)
+					以x轴为中心轴，旋转元素
+				rotateY(ydeg)
+				rotateZ(zdeg)
+		4、3D转换-位移
+			改变元素在 z 轴上的位置
+			属性和函数
+			属性：transform
+			函数：translatez(z)
+				有三个元素，默认位置相同
+				第一个元素 z轴 -50px的位置处
+				第二个元素 z轴 原点
+				第三个元素 z轴 50px的位置处
+		5、3D位移-特殊属性
+			属性：transform-style
+			作用：规定如何在3D空间中呈现被嵌套的元素
+			取值：
+				1、flat
+					子元素将不保留其3D位置
+				2、preserve-3d
+					子元素将保留其3D位置
+2、过渡
+	1、什么是过渡
+		使得CSS属性值在一段时间内平滑的过渡
+		过渡 主要 关注的 是变化过程
+	2、过渡的四大属性
+		1、指定过渡属性
+			属性：transition-property
+			作用：指定 哪个属性的 值在变化过程中使用过渡效果进行显示
+			取值：
+				1、none
+				2、all
+					所有属性都采用过渡效果展示
+				3、property
+					具体 使用过渡效果的属性名称
+			可以设置过渡效果的属性：
+				1、颜色属性
+				2、取值为数值的属性
+				3、转换属性
+					transform
+				4、渐变属性
+				5、visibility
+				6、阴影属性
+			ex:
+				1、transition-property:width;
+				2、transition-property:transform;
+				3、transition-property:rotatex;//错误
+		2、指定过渡时长
+			作用：一个过渡效果在多长时间内完成
+			属性：transition-duration
+			取值：s | ms
+				1000ms = 1s
+			注意：该属性 必须设置，否则时长为0,就没有过渡效果
+			ex:
+				transition-duration:0.3s;
+		3、指定 过渡 时间速度 曲线函数
+			属性：transition-timing-function
+			取值：
+				1、ease
+					默认值，慢速开始，快速变快，慢速结束
+				2、linear
+					匀速
+				3、ease-in
+					慢速开始，加速效果
+				4、ease-out
+					快速开始，减速效果
+				5、ease-in-out
+					慢速开始和结束，中间先加速后减速
+		4、指定 过渡延迟 时间
+			作用：当激发操作后， 等待 多长时间后，再显示过渡效果
+			属性：transition-delay
+			取值：以 s | ms 为单位
+		5、简写属性
+			transition:property duration timing-function delay;
+
+			transition:property1 duration1 timing-function1 delay1,
+								 property2 duraiton2 timing-function2 delay2;
+	3、触发过渡
+		1、用户行为(点击，鼠标悬停操作)
+		2、
+			:hover
+			:active
+			:focus
+3、动画
+	1、什么是动画
+		使元素从一种样式逐渐变化为另一种样式
+		通过 关键帧 控制动画的每一步
+		关键帧：
+			元素 在某个时间点上的 状态(样式)
+	2、使用动画的步骤
+		1、声明动画
+			指定动画名称，并且 指定动画 在各个时间点上的样式
+		2、为元素调用动画
+			指定 元素使用哪个动画效果来进行演示
+
+		注意：
+			浏览器兼容性
+	3、声明动画
+		需要指定：时间点
+		需要指定：状态(样式)
+
+		语法：
+			@keyframes 名称{
+				0% | from{
+					声明 动画 开始时的 状态(样式)
+				}
+				...
+				50%{
+					声明 动画运行到 一半的时候 的状态
+				}
+				...
+				100% | to{
+					声明 动画 结束时的 状态(样式)
+				}
+			}
+
+			@-webkit-keyframes 名称{
+				0% | from{
+					声明 动画 开始时的 状态(样式)
+				}
+				...
+				50%{
+					声明 动画运行到 一半的时候 的状态
+				}
+				...
+				100% | to{
+					声明 动画 结束时的 状态(样式)
+				}
+			}
+			@-o-keyframes 名称{}
+			@-moz-keyframes 名称{}
+	4、调用动画(属性)
+		1、animation-name
+			作用：指定 要调用的动画名称
+		2、animation-duration
+			作用：指定 完成一个动画的周期 需要的时长
+		3、animation-timing-function
+			作用：指定 动画的 时间速度 曲线函数
+			取值：
+				ease,linear,ease-in,ease-out,ease-in-out
+		4、animation-delay
+			作用：延迟
+		5、animation-iteration-count
+			作用：指定动画播放次数
+			取值：
+				1、具体数值
+				2、infinite
+					无限次播放
+		6、animation-direction
+			作用：指定动画播放方向
+			取值：
+				1、normal
+					正常，0% - 100%
+				2、reverse
+					逆向播放，100% - 0%
+				3、alternate
+					轮流播放
+					奇数次数时：正向播放
+					偶数次数时：逆向播放
+		7、animation
+			简写方式
+			animation:name duration timing-function delay iteration-count direction
+		8、animation-fill-mode
+			作用：规定动画在播放前后，填充效果
+			取值：
+			1、none
+				不改变默认行为
+			2、forwards
+				当动画完成后，保持在最后一帧的状态上
+			3、backwards
+				当动画播放前(在延迟时间内)，元素保持在第一帧的状态上
+			4、both
+				播放之前和播放之后 分别应用在第一帧和最后一帧上
+		9、animation-play-state
+			作用：指定动画的播放状态(播放 还是 暂停)
+			取值：
+				1、paused
+					暂停
+				2、running
+					播放
+
+
+
+
+
+
+
+
+

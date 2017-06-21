@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <style>
+	img{position:absolute;}
+  </style>
+ </head>
+ <body>
+	<h1>练习：jQuery万能动画函数</h1>
+	<img src="img/1.jpg">
+	<img src="img/2.jpg">
+	<img src="img/3.jpg">
+	<img src="img/4.jpg">
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+//		$("img:nth-child(1)").css("left","0");
+//		$("img:nth-child(2)").css("left","200px");
+//		$("img:nth-child(3)").css("left","400px");
+//		$("img:nth-child(4)").css("left","600px");
+		$("img").each(function(i){
+			$(this).css("left",200*i+"px");
+		}).click(function(){
+			$(this).animate(
+			{width:400,height:300,opacity:0},
+			2000,
+			"linear",
+			function(){
+				$(this).remove();
+			}
+			)
+		})
+//	.click(function(){
+//			$(this).animate({
+//				width:400,
+//				height:300,
+//				opacity:0,
+//			},2000,"linear",function(){
+//				$(this).remove();
+//			)
+//			})
+	</script>
+ </body>
+</html>

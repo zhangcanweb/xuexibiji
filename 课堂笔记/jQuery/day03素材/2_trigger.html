@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+  <h1>使用代码触发事件</h1>
+	<a href="#">模拟单击所有按钮</a><br>
+	<button>BTN1</button>
+	<button>BTN2</button>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$("button").click(function(){
+			alert($(this).html()+"被单击");
+		})
+		$("a").click(function(e){
+			e.preventDefault();
+			$("button").trigger("click");
+		})
+	</script>
+ </body>
+</html>

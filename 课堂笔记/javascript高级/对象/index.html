@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>自我介绍</title>
+		<link rel="Stylesheet" href="index.css"/>
+	</head>
+	<body>
+		<div id="parentDiv">
+<div id="lilei" onmouseover="lilei.intr()" onmouseout="dialog.style.display='none'">
+</div>
+<div id="hmm" onmouseover="" onmouseout="dialog.style.display='none'">
+</div>
+<div id="dialog"></div>
+		</div>
+		<script>
+			var lilei={
+				sname:"Li Lei",
+				sage:11,
+				intr: function(){
+					//找到对话框:dialog
+					//设置dialog的内容为自我介绍的内容
+					dialog.innerHTML="I'm "+this.sname
+					                +",I'm "+this.sage;
+					//设置dialog显示:
+					dialog.style.display="block";
+				}
+			}
+		
+		/* 证明: 对象的底层也是hash数组
+			var lxr=[];
+			lxr["sname"]="林心如";
+			lxr["math"]=81;
+			console.dir(lilei);
+			console.dir(lxr);
+			console.log(lxr["math"]);
+			console.log(lilei["sage"]);
+		*/
+		/* 对象克隆
+			function clone(obj){
+			//var newObj=new Object();//创建新对象newObj
+				var newObj=obj.constructor();
+				//遍历obj中每个属性
+				for(var key in obj){
+					//为newObj添加新属性，属性名等于obj中当前属性的名，属性值等于obj中当前属性的值
+					newObj[key]=obj[key];
+					//从obj数组中的key位置，拷贝出值到newObj数组的key位置
+				}
+				return newObj;
+			}
+			var lilei_copy=lilei;//不是克隆
+			var lilei_copy=clone(lilei);
+			console.log(lilei_copy);
+			console.log(lilei);//两个对象结构完全相同
+			console.log(lilei==lilei_copy);//false
+		*/
+			//定义构造函数:
+			//function Student(sname,sage){
+				//this.sname=sname;
+				//this.sage=sage;
+			//}
+			////为Student的原型对象添加intr方法
+			////原型对象中的intr方法，所有子对象可直接使用
+			//Student.prototype.intr=function(){
+				//dialog.innerHTML="I'm "+this.sname
+					                //+", I'm "+this.sage;
+				//dialog.style.display="block";
+			//}
+			////添加共有成员
+			////Student.prototype.className="初一2班";
+			////用new调用构造函数
+			//var lilei=new Student("Li Lei",11);
+			//console.dir(lilei);
+			//var hmm=new Student("Han Meimei",12);
+			//console.dir(hmm);
+			////添加自有属性
+			////lilei.className="初一2班";
+			//console.log(lilei.className);
+			//console.log(hmm.className);
+			////删除hmm的sage属性
+			//delete hmm.sage;
+			//console.dir(hmm)
+			//delete lilei.intr;
+			//console.dir(lilei);
+
+			////判断自有或共有:
+			//function checkProp(obj,pname){
+				////如果pname是obj的自有属性:	
+				//if(obj.hasOwnProperty(pname))
+					//console.log("自有");//输出自有
+				////否则，如果用obj访问pname属性!==undefined
+				//else if(obj[pname]!==undefined)
+					//console.log("共有");//输出共有
+				//else//否则
+					//console.log("没有");//输出没有
+			//}
+			//checkProp(lilei,"sname");//自有
+			//checkProp(hmm,"intr");//共有
+			//checkProp(lilei,"className");//没有
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			function Student(sname,sage){
+				this.sname=sname;
+				this.sage=sage;
+			}
+			Student.prototype.intr=function(){
+				dialog.innerHTML="I'm "+this.sname
+					                +", I'm "+this.sage;
+				dialog.style.display="block";
+			}
+			Student.prototype.className="初一2班";
+			console.log(Student.prototype);
+			var lilei=new Student("Li Lei",11);
+			console.dir(lilei);
+			var hmm=new Student("Han Meimei",12);
+			console.dir(hmm);
+			console.log(lilei.__proto__===Object.getPrototypeOf(lilei));
+			console.log(Student.isPrototypeOf(hmm));
+			console.log(hmm.hasOwnProperty("sname"));
+			console.log(hmm["sage"]);
+		</script>
+	</body>
+</html>

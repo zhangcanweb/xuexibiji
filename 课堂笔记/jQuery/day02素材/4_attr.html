@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的属性</h1>
+	<img src="img/1.jpg" alt="1">
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$("img").click(function(){
+			var n=parseFloat($(this).attr("alt"));
+			n++;
+			if(n>4){
+				n=1;
+				$(this).attr({
+					src:"img/"+n+".jpg",
+					alt:n
+				});
+			}
+		});
+	</script>
+ </body>
+</html>

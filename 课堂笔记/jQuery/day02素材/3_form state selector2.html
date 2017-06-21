@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<form>
+		请选择关注的话题
+		<br>
+		<input type="checkbox" name="" id="">体育
+		<br>
+		<input type="checkbox" name="" id="">娱乐
+		<br>
+		<input type="checkbox" name="" id="">音乐
+		<br>
+		<input type="checkbox" name="" id="">搞笑
+		<br>
+		<input type="button" value="进入我的微博"
+		disabled>
+	</form>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$(":checkbox").click(function(){
+			if($(this).prop("checked")){
+				$(":button").prop("disabled",false);
+			}else {
+				if($(":checked").length>0){
+					$(":button").prop("disabled",false);
+				}else{
+					$(":button").prop("disabled",true);
+				}
+			}
+		});
+	</script>
+ </body>
+</html>

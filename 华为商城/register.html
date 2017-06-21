@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/register.css"/>
+</head>
+<body>
+    <div id="header">
+        <img src="imgs/register-logo.png" id="header-logo">
+        <img src="imgs/line.png" id='header-line'>
+        <span>华为商城</span>
+    </div>
+    <div id="main">
+        <div id="main-left">
+            <img src="imgs/register-bc.jpg" alt=""/>
+        </div>
+        <div id="main-right">
+            <h1>欢迎登陆华为账号</h1>
+            <div id="form-group">
+                <form>
+                    <div class="form-control">
+                        <label for="uname"></label>
+                        <input class="input-control" type="text"  autofocus required minlength="6" maxlength="10"  placeholder="手机号/邮件地址" id="uname">
+                    </div>
+                    <div class="form-control">
+                        <label for="pwd"></label>
+                        <input class="input-control" type="password" required minlength="5" maxlength="12"    placeholder="密码" id="pwd">
+                    </div>
+                    <div class="form-control">
+                        <input class="input-control-Y" type="text" required  placeholder="不区分大小写" id="checkMall">
+                        <span></span>
+                        <span>
+                            <a href="#"><img class="register-check" src="imgs/register-check.png" alt=""/></a>
+                        </span>
+                        <span>
+                           <a href="#"><img class="refresh" src="imgs/refresh.png" alt=""/></a>
+                        </span>
+                    </div>
+                    <div class="form-control">
+                        <input type="checkbox" class="cb"/>
+                        <span id="r-account()">记住账号</span>
+                        <a href="#" class="form-control-a">忘记密码？</a>
+                    </div>
+                    <div class="line-control">
+                        <hr/>
+                    </div>
+                    <div class="form-control">
+                        <button type="submit">登录</button>
+                    </div>
+                </form>
+            </div>
+            <div id="form-down">
+                <div class="form-control">
+                    <span class="san-register">第三方账号登录:</span>
+                    <a href="#"><img src="imgs/qq.png" alt=""/></a>
+                    <a href="#"><img src="imgs/alipay.png" alt=""/></a>
+                    <a href="#"><img src="imgs/wenxin.png" alt=""/></a>
+                </div>
+                <div class="form-control">
+                    <span>你还没有华为账号吧？</span>
+                    <a href="#" class="login">免费注册</a>
+                </div>
+                <p class="form-control san-register">华为帐号是您用于访问所有华为服务的帐号。使用华为帐号登录后，您将可以使用云服务、华为商城、花粉俱乐部、应用市场、EMUI产品、华为网盘和开发者联盟。</p>
+            </div>
+        </div>
+    </div>
+<div id="footer-line">
+    <hr/>
+</div>
+<div id="footer">
+    <p>
+        <a href="#" class="footer-a">华为隐私政策</a>
+        <a href="#" class="footer-a">华为账号用户协议</a>
+        <img src="imgs/line.png" alt=""/>
+        <a href="#">常见问题</a>
+    </p>
+    <p>Copyright©2011-2016 华为技术有限公司 版权所有 保留一切权利</p>
+    <p>苏B2-20070200号 | 苏ICP备09062682号-9</p>
+</div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

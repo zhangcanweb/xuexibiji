@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Dialog</h1>
+	<h3>弹出式对话框</h3>
+	<a href="#">我要登录</a>
+
+	<div id="dialog-login" title="用户登录">
+		<form action="">
+			用户名：<input type="text"><br>
+			密码名：<input type="password"><br>
+		</form>
+	</div>
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+	<script>
+		//初始化父元素为对话框的样式
+	  $("#dialog-login").dialog({
+			autoOpen:false,//默认关闭
+			buttons:[//添加两个按钮
+				{text:"提交",click:function(){
+					//dialog中按钮事件中的this->对话框
+					var $this=$(this);
+					//修改对话框内容为进度条div
+					$this.html("<div id='progressbar'></div>");
+					var p=0;//进度条百分比
+					//初始化进度条div样式
+					$("#progressbar").progressbar({value:p});
+					var timer=null;//关闭定时器之用
+					timer=setInterval(function(){
+						$("#progressbar").progressbar({
+							value:p+=20//修改进度条进度+20%
+						});
+						if(p==100){//如果进度到100%
+							clearInterval(timer);//停止定时器
+							$this.html("提交成功！");//
+						}
+					},500);
+				}},
+				{text:"取消",click:function(){
+					$(this).dialog("close");//关闭
+				}}
+			]
+		});
+		//单击a时,弹出对话框
+		$("a").button().click(function(e){
+			e.preventDefault();
+			$("#dialog-login").dialog("open");//弹出
+		});
+	</script>
+ </body>
+</html>

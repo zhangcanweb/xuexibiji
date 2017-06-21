@@ -1,0 +1,66 @@
+回顾:
+1. ***数组
+2. ***String:
+  什么是: 一串字符组成的只读字符数组
+     vs 数组: 
+      相同:1. 下标
+           2. length
+           3. 遍历: for(var i=0;i<arr.length;i++)
+           4. concat,slice 
+
+正课:
+1. ***String
+  String API
+  *****正则
+
+两个概念: 
+  ECMAScript内置对象:ES标准中规定的，浏览器厂商已经实现的对象。
+    11个: String Number Boolean  - 包装类型
+          Array Date Math RegExp
+          Error
+          Function Object
+          Global(全局对象)在浏览器中被window替代
+
+  包装类型: 专门封装原始类型的值，并提供对原始类型的值执行操作的API 的对象
+    为什么: 
+      问题一: 原始类型的值本身不包含任何方法
+      解决: 预定义了三种包装类型，包装类型中包含操作数据的API。在试图对原始类型的值调用方法时，会自动创建对应包装类型的对象，封装原始类型的值，并调用对象的方法，操作值。
+        包装类型的对象，调用完方法后，自动释放！
+      问题二: string类型的数据，不能使用toFixed(2)
+        创建包装类型的对象前，先检查原始类型的值，再创建对应类型的包装类型对象。
+        不同类型的包装类型对象，拥有不同的API，不通用。
+      问题三: null和undefined不能打点?
+    鄙视题: 
+      var str="Hello";//new String("Hello");
+      str.len=5;//为str添加一个属性len
+      console.log(str.len);//undefined
+      //希望len=5,始终留在str上?
+      
+String API: ***强调: 所有StringAPI都无权修改原字符串，只能返回新字符串
+1. 大小写转换: 将字符串中所有英文字母统一转为大写或小写
+   str.toUpperCase();
+   str.toLowerCase();
+   何时: 只要希望不区分大小写时
+   如何: 今后只要不区分大小写，都要先统一转为大写/小写,再操作。
+  补: css中,text-transform: 		uppercase/lowercase/capitalize
+
+2. 获取指定位置的字符: 
+   str[i]
+   var char=str.charAt(i)
+   获得指定位置字符的unicode号
+   var unicode=str.charCodeAt(i);//省略i，默认为0
+     将unicode号反向转为字符:
+     String.fromCharCode(unicode);
+3. 选取子字符串: 
+   var subStr=str.slice(starti,endi+1);支持负数
+              str.substring(starti,endi+1);不支持负数
+              str.substr(starti,n);选取starti开始的n个
+                                   不考虑含头不含尾
+
+
+
+
+
+
+
+

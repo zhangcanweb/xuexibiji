@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		label.error{
+			border:1px solid red;
+			background:pink;
+			color:red;
+			padding: 0 12px;
+		}
+	</style>
+ </head>
+ <body>
+  <h1>jQuery.validate表单验证组件的使用</h1>
+	<form id="form-msg">
+		用户名: <input name="uname"><br>
+		密码: <input type="password" id="upwd1" name="upwd1"><br>
+		确认密码: <input type="password" name="upwd2"><br>
+		邮箱名: <input name="mail"><br>
+		个人网站: <input name="site"><br>
+		手机号:<input name="mobile"><br>
+	  生日:<input name="birth"><br>
+		<input type="submit" value="提交">	
+	</form>
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script>
+		//添加自定义验证规则
+		jQuery.validator.addMethod('mobile',//规则名
+			function(value){//自动获得要验证的控件内容
+				if(value.trim()!=="")//不要管空值
+					return /^1[34578]\d{9}$/.test(value);
+				return true;//放过空值
+			}
+		);
+		$("#form-msg").validate({
+			rules:{
+				uname:"required",//用户名必填
+				upwd1:{required:true,rangelength:[6,12]},
+				upwd2:{equalTo:"#upwd1"},
+				mail:{required:true, email:true},
+				mobile:{required:true,mobile:true},
+				site:"url",
+				birth:"date",
+			},
+			messages:{
+				uname:"用户名不能为空",//用户名必填
+				upwd1:{
+					required:"密码不能为空",
+					rangelength:"密码长度必须介于6~12位之间"
+				},
+				upwd2:{ equalTo:"确认密码和密码不一致" },
+				mail:{
+					required:"邮箱不能为空", 
+					email:"邮箱格式不正确"
+				},
+				mobile:{
+					required:"手机号必填",
+					mobile:"手机号格式不正确"
+				},
+				site:"url地址格式不正确",
+				birth:"日期格式不正确",
+			}
+		})
+	</script>
+ </body>
+</html>

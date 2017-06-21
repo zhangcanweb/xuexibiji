@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.alert{
+			border:1px solid #a33;
+			color:#922;
+			background:#fee;
+			padding:10px;
+			overflow:hidden;
+		}
+		.fade{
+			width:0;height:0;
+			transition:all .3s linear;
+			opacity:0;
+		}
+		.in{
+			width:100%;
+			height:51px;
+			opacity:1;
+		}
+		.close{
+			float:right;
+			font-weight:bold;
+			opacity:0.5;
+			cursor:pointer;
+			transition:opacity .3s linear;
+		}
+		.close:hover{
+			opacity:1;
+		}
+	</style>
+ </head>
+ <body>
+ <button data-trigger="pop">弹出提示</button>
+  <div class="alert fade in">
+  	<span class="close" 
+	data-trigger="colse">×</span>
+  	<p>您的浏览器版本太低!请下载最新版本的浏览器</p>
+  </div>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+	$("[data-trigger='close']").click(function(){
+		$(this).parent().removeClass("in");
+	})
+	$("[data-trigger='pop']").click(function(){
+		$(this).next().addClass("in");
+	})
+  </script>
+ </body>
+</html>

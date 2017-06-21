@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="laydate/skins/molv/laydate.css">
+ </head>
+ <body>
+  <h1>layDate日期组件的使用</h1>
+	生日：<input id="birthday" class="laydate-icon">
+	
+	<script src="laydate/laydate.js"></script>
+	<script>
+		laydate({
+			elem:"#birthday",
+			format:"YYYY年MM月DD日",
+			istime:true,
+			festival:true,
+		});
+	</script>
+ </body>
+</html>

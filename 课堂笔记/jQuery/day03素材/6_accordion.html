@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <style>
+	.according>.title{
+		background:#eee;
+		border:1px solid #aaa;
+		padding:6px;
+		cursor:pointer;
+		font-size:1.5em;
+		font-weight:bold;
+	}
+	.according>.content{
+		border:1px solid #aaa;
+		overflow:hidden;
+	}
+	.fade{
+		height:0;
+		opacity:0;
+		transition:all 1s linear;
+	}
+	.in{
+		height:140px;
+		opacity:1;
+		padding:6px;
+	}
+  </style>
+ </head>
+ <body>
+	<h1>使用“高度动画”实现“手风琴”组件</h1>
+	<div class="according">
+		<div class="title" data-toggle="title">西游记简介:</div>
+		<div class="content fade">
+			<p>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime aspernatur libero ipsam sunt atque ipsum nihil vel doloribus officiis voluptatibus quia fugit sapiente doloremque vitae nam quasi accusantium eligendi laborum.</span>
+				<span>Unde excepturi distinctio voluptate ea numquam sequi maxime voluptatum fugit nam neque. Consequatur praesentium quaerat obcaecati deserunt cupiditate nulla quibusdam optio distinctio quas maiores amet sint aspernatur doloremque temporibus blanditiis?</span>
+				<span>Ea amet unde tenetur voluptatum repudiandae nobis sunt aperiam ratione recusandae soluta facilis quas commodi aspernatur fugit doloremque rerum saepe quam architecto inventore eum autem temporibus consequuntur in error nemo?</span>
+			</p>
+		</div>
+		<div class="title" data-toggle="title">水浒传:</div>
+		<div class="content fade">
+			<p>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse accusantium accusamus molestiae corporis laboriosam eius quisquam minus a. Quibusdam consequuntur nobis molestias in vel rerum inventore quis facere quia itaque.</span>
+				<span>Autem iusto nihil laborum culpa magnam minus esse natus praesentium porro totam suscipit reprehenderit saepe quam quibusdam ratione delectus ullam optio fugit blanditiis tempora explicabo labore est ex eligendi animi.</span>
+				<span>Ab amet repellat quos ad suscipit temporibus laboriosam alias maiores aperiam culpa quisquam iste quae perspiciatis repudiandae nemo enim dolor! In nemo amet sunt corporis quaerat ipsum blanditiis est natus?</span>
+			</p>
+		</div>
+		<div class="title" data-toggle="title">红楼梦简介:</div>
+		<div class="content fade">
+			<p>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro nulla ratione sit quas tempore quidem voluptas molestiae ipsum asperiores veniam quisquam aliquid doloremque. Sunt quidem quos pariatur harum dicta porro.</span>
+				<span>Sint eligendi beatae nemo obcaecati earum voluptates vero quis vel ad nam id officia harum distinctio nobis veritatis labore enim. Numquam soluta non laboriosam quibusdam vel sed maiores! Delectus sit.</span>
+				<span>Repellendus explicabo animi ab incidunt rem ipsam laboriosam modi tempore optio labore aperiam unde nostrum deserunt dolor qui laborum fugit libero ad distinctio ex accusantium alias sed eligendi ratione minus.</span>
+			</p>
+		</div>
+		<div class="title" data-toggle="title">三国简介:</div>
+		<div class="content fade">
+			<p>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint eum pariatur accusamus ut minima quod architecto temporibus odit voluptatem omnis molestias explicabo aut corporis fugiat nostrum ab necessitatibus reiciendis perferendis.</span>
+				<span>Ratione hic iure repellendus velit minima repudiandae molestias quis quia similique repellat alias quod quaerat expedita adipisci autem nemo totam. In odit eius nobis itaque dolorem provident numquam possimus fugit.</span>
+				<span>Expedita fuga molestias quaerat tempore aspernatur iusto vel labore consequatur dolorum earum voluptate eos incidunt corporis blanditiis perspiciatis repellat voluptatem. Vitae laboriosam sequi quidem ducimus praesentium ullam nulla excepturi dolores!</span>
+			</p>
+		</div>
+	</div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$("[data-toggle='title']").click(function(){
+			$(this).next().toggleClass("in").siblings(".content").removeClass("in");
+		})
+	</script>
+ </body>
+</html>

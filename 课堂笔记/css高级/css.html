@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			body{
+				counter-reset:c1;
+			}
+			p{
+				counter-increment:c1 1;
+				counter-reset:c2;
+			}
+			h3{
+				counter-increment:c2 1;
+				
+			}
+			p:before{
+				content:counter(c1)"、";
+			}
+			h3:before{
+				content:counter(c1)"."counter(c2);
+			}
+		</style>
+	</head>
+		<p>HTML</p>
+		<h3>基本元素</h3>
+		<h3>块级元素</h3>
+		<h3>行内元素</h3>
+		<p>CSS</p>
+		<h3>选择器</h3>
+		<h3>边框属性</h3>
+		<h3>尺寸属性</h3>
+	</body>
+</html>

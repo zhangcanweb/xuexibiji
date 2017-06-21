@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的内容和值</h1>
+	<form action="">
+		<input type="" name="uname" placeholder="请输入用户名">
+		<span id="uname-msg"></span>
+		<br>
+		<input type="password" name="upwd" id="" placeholder="请输入密码">
+		<span id="upwd-msg"></span>
+		<br>
+		<input type="button" value="提交注册信息">
+	</form>	
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$("form>:button").click(function(){
+			var $uname=$("form>[name='uname']");
+			if($uname.val().length<3||$uname.val().length>9){
+				$("#uname-msg").html("<img src='img/err.png'>");
+			}else{
+				$("#uname-msg").html("<img src='img/ok.png'>");
+			}
+			var $upwd=$("form>[name='upwd']");
+			if($upwd.val().length<6||$upwd.val().length>8){
+					$("#upwd-msg").html("<img src='img/err.png'>");
+			}else{
+					$("#upwd-msg").html ("<img src='img/ok.png'>");
+			}
+			
+		});
+	</script>
+ </body>
+</html>

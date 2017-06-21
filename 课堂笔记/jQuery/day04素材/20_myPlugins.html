@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> 我的第一个网页 </title>
+  <meta charset="utf-8"/>
+	<link rel="stylesheet" href="20_myPlugins.css">
+  <style>
+  
+  </style>
+ </head>
+
+ <body>
+  <h1>自定义jQuery对象插件函数</h1>  
+  <h3>下拉菜单</h3>
+
+  <div id="my-dropdown">
+    <a href="#">产品大全</a>
+    <ul>
+      <li>冰箱</li>
+      <li>洗衣机</li>
+      <li>空调</li>
+    </ul>
+  </div>
+
+  <script>
+  </script>
+
+  <h3>标签页插件</h3>
+
+  <div id="my-tabs">
+    <ul>
+      <li><a href="#tc10">十元套餐</a></li>
+			<li><a href="#tc20">二十元套餐</a></li>
+			<li><a href="#tc30">三十元套餐</a></li>
+    </ul>
+
+    <div id="tc10">十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio molestias eum ratione ea voluptatem aliquam maiores vero commodi. Omnis molestias ut accusantium a numquam amet maiores recusandae totam unde perspiciatis.</div>
+    <div id="tc20">二十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti tenetur eius nostrum provident a excepturi saepe sed labore adipisci ab non voluptate repellat dolorem recusandae amet autem quos obcaecati veritatis.</div>
+    <div id="tc30">三十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum corrupti eius doloribus animi adipisci perferendis totam distinctio pariatur. Doloribus maiores voluptatibus dolores sit excepturi consequuntur eligendi blanditiis ipsam ea amet.</div>
+  </div>
+
+  
+  <script>
+  </script>  
+
+  <h3>手风琴插件</h3>
+
+  <div class="accordion">
+    <h4>《西游记》简介</h4>
+    <p class="active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum omnis ex ab expedita in corporis sapiente natus laboriosam incidunt distinctio quas id facere ducimus ad dolorum iusto eum culpa est!</p>
+    <h4>《三国志》简介</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum accusamus veniam necessitatibus quia odit soluta laudantium quasi iusto tenetur sapiente similique dolorum enim. Beatae esse repudiandae expedita ullam doloribus vel.</p>
+    <h4>《水浒传》简介</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora eos possimus omnis commodi aspernatur molestiae saepe consequatur deleniti nostrum ipsa totam facere asperiores nulla maxime sint! Facilis error quis aliquam.</p>
+  </div>
+  
+  <script>
+  </script> 
+
+
+  <h3>按钮组插件</h3>
+
+  <div class="btnGroup">
+    <button class="active" type="button">播放</button>
+    <button type="button">暂停</button>
+    <button type="button">继续</button>
+  </div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="20_myPlugins.js"></script>
+  <script>
+		$("#my-dropdown").dropdown();
+		$("#my-tabs").tabs();
+  </script>
+
+
+
+
+<br><br><br><br><br><br>
+ </body>
+</html>

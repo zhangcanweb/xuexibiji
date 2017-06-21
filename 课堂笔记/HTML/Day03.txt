@@ -1,0 +1,234 @@
+﻿1、回顾
+	1、a-锚点
+		1、使用
+			1、定义锚点
+				1、<a name="锚点名称">
+				2、<ANY id="标识/锚点">
+			2、链接到锚点
+				<a href="#锚点名称"></a>
+				<a href="页面URL#锚点名称"></a>
+	2、表格
+		1、语法
+			1、创建表格&属性
+				<table></table>
+				属性：
+					1、width
+					2、height
+					3、border
+					4、bgcolor
+					5、cellpadding
+					6、cellspacing
+					7、align
+			2、创建表行&属性
+				<tr></tr>
+				属性：
+					1、align
+					2、valign
+						top/middle/bottom
+					3、bgcolor
+			3、创建单元格(列)&属性
+				<td></td>
+				属性：
+					1、width
+					2、height
+					3、bgcolor
+					4、align
+					5、colspan
+						跨列
+					6、rowspan
+						跨行
+		2、额外的标记
+			1、<caption></caption>
+				表格标题
+			2、<th></th>
+				行标题/列标题
+		3、表格的复杂应用
+			1、行分组
+				1、<thead></thead> 表头
+				2、<tbody></tbody>表主体
+				3、<tfoot></tfoot>表尾
+
+				如果不给行进行分组的话，默认都在tbody中
+			2、不规则表格
+				每行的列数不统一化
+				通过  td 的跨行/跨列 属性完成
+				1、colspan
+					跨列
+					从指定位置处开始，横向向右合并掉几个单元格(包含自己),被合并掉的单元格，要删除
+				2、rowspan
+					跨行
+					从指定位置处开始，纵向向下合并掉几个单元格(包含自己),被合并掉的单元格，要删除
+			3、表格嵌套
+				所有被嵌套的内容，要放在 td 中
+	3、列表
+		1、有序列表
+			语法
+				<ol></ol>
+			属性
+				1、type
+					1,a,A,i,I
+				2、start
+					起始编号 
+		2、无序列表(重点)
+			语法
+				<ul></ul>
+				列表项：<li></li>
+			属性
+				type
+					disc,circle,square,none
+
+			列表可以嵌套
+				被嵌套的内容要放在 <li></li> 中
+		3、定义列表
+			使用场合：图文并茂
+			语法：
+				<dl></dl>:定义 定义列表
+				<dt></dt>:定义 列表中的一个术语或名词
+				<dd></dd>:对术语或名词的解释
+	4、结构标记
+		1、作用
+			主要用作布局，提升标记的语义性
+		2、语法
+			1、<header></header> --顶部
+			2、<nav>/nav> --导航
+			3、<section></section> --主体内容(小节)
+			4、<article></article> --博客，微博，帖子 信息等 
+			5、<aside></aside> --侧边栏
+			6、<footer></footer> --底部
+	5、表单
+		1、作用
+			用于显示、收集数据，并提交数据给服务器
+		2、组成部分
+			1、表单
+				1、语法
+					<form></form>
+				2、属性
+					1、action
+						提交给服务器的处理程序的URL
+						默认提交给 本页
+					2、method
+						提交方式
+						1、get(默认值)
+							场合：向服务器要数据的时候使用
+							特点：
+								1、显示提交
+								2、大小限制-2KB
+						2、post
+							场合：让服务器处理数据(注册，登录)
+							特点：
+								1、隐式提交-在地址栏上不会显示提交信息，安全								   性较高
+								2、无大小限制
+					3、enctype
+						作用：表单数据进行编码的方式
+						取值:
+							1、application/x-www-form-urlencoded
+								允许将 普通字符，特殊字符，提交给服务器，但									是 文件 无法提交
+							2、multipart/form-data
+								允许将 文件 提交给服务器
+							3、text/plain
+								只能提交普通字符
+			2、表单控件
+***********************************
+1、表单 - 表单控件
+	1、分类
+		1、input 组元素
+		2、textarea 元素
+		3、select 和 option 选项框
+		4、其他元素
+	2、input 元素
+		1、语法
+			<input> 或 <input/>
+		2、属性
+			1、type(重点)
+				根据不同的type属性值，可以创建各种类型的输入控件，比如：文本框，密码框，复选框，按钮 等... ...
+			2、value
+				控件的值即要提交给服务器的数据
+			3、name
+				控件的名称，服务器要用
+				命名规范：匈牙利命名法
+					控件的缩写+功能名称
+			4、disabled
+				该属性只要出现在标签中，表示的是 禁用 该控件
+		3、input的具体控件
+			1、文本框与密码框
+				文本框：明文显示用户输入的数据
+					<input type="text">
+				密码框：密文显示用户输入的数据
+					<input type="password">
+
+				属性
+					1、name 
+						缩写：txt
+						ex:
+							1、创建一个文本框，表示 接受 用户名称(Username)
+							<input type="text" name="txtUsername">
+							2、创建一个密码框，表示 接受 用户密码(Userpwd)
+							<input type="password" name="txtUserpwd">
+					2、value
+						1、表示控件的值
+						2、表示控件的默认值
+					3、maxlength
+						限制输入的字符数
+					4、readonly
+						只读-只能看，不能改
+						该属性只要出现在标记中，就是只读的意思，不需要给值
+
+						readonly 与 disabled 的区别
+						1、readonly 只能看，不能改，但是可以被提交
+						2、disabled 只能看，不能改，但是不能提交给服务器
+				注意：对于input来讲，如果不写 type 或者 type值写错的时候，默认都是文本框
+			2、单选按钮和复选框
+				单选按钮：type="radio"
+				复选框：type="checkbox"
+				属性：
+					1、name
+						定义名称
+						radio缩写：rdo
+						checkbox缩写：chk
+						还可以对控件进行分组,一组单选按钮和复选框，名称必须相同
+
+						对于单选按钮：一组中的单选按钮，最多只能有一个被选中
+					2、checked
+						设置默认被选中
+			3、按钮
+				1、提交按钮
+					功能固定化，负责将表中中的表单控件提交给服务器
+					<input type="submit">
+				2、重置按钮
+					功能固定化，负责将所有表单控件的值恢复为初始值
+					<input type="reset">
+				3、普通按钮
+					无功能，执行客户端的脚本(JS)
+					<input type="button">
+				属性：
+					1、name
+						缩写：btn
+					2、value
+						按钮上的显示文本
+			4、隐藏域 和 文件选择框
+				1、隐藏域
+					不希望被用户看见，但是要提交给服务器的信息 
+					<input type="hidden">
+					name ：txt+功能名称
+					value ：值
+				2、文件选择框
+					上传文件所用
+					<input type="file">
+					name : txt+功能名称
+
+					注意：
+						1、上传文件时，method的值必须为 post
+						2、上传文件时，enctype的值必须为 multipart/form-data
+2、其他常用标记
+3、CSS - 基础
+
+
+
+
+01-input.html?txtUsername=sanfeng.zhang&txtUserpwd=yinsusu&rdoGender=%E7%94%B7&chkHobby=eat&chkHobby=drink&chkHobby=play&chkHobby=happy
+
+file:///E:/%E8%B5%B5%E6%97%AD/CLASS/01_HTML5BASIC/Day03/01-input%E5%85%83%E7%B4%A0.html?txtUsername=fdsa&txtUserpwd=1234565&rdoGender=%E5%A5%B3&chkHobby=eat&txtID=sanfeng.zhang%40163.com
+
+
+
+

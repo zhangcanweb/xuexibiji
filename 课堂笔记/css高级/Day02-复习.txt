@@ -1,0 +1,144 @@
+1、复杂选择器
+	1、兄弟选择器
+		1、相邻兄弟选择器
+			选择器1+选择器2
+		2、通用兄弟选择器
+			选择器1~选择器2
+	2、属性选择器
+		[attr] 
+		elem[attr]
+		elem[attr=val]
+		elem[class~=val]
+		elem[attr^=val]
+		elem[attr*=val]
+		elem[attr$=val]
+	3、伪类选择器
+		1、目标伪类
+			:target
+		2、元素状态伪类
+			:enabled
+			:disabled
+			:checked
+		3、结构伪类
+			:first-child
+			:last-child
+			:nth-child(n)
+			:empty
+			:only-child
+		4、否定伪类
+			:not(选择器)
+	4、伪元素
+		伪元素与伪类的区别：
+		1、语法不同
+			伪类 ： :伪类选择器
+			伪元素：:伪元素 或 ::伪元素
+		2、作用不同
+			伪类：匹配页面元素
+			伪元素：匹配元素中的内容
+
+		:first-letter 或 ::first-letter
+		:first-line 或 ::first-line
+		::selection
+2、内容生成
+	1、伪元素选择器
+		:before 或 ::before : 匹配内容区域之前
+		:after 或 ::after : 匹配内容区域之后
+		<div>(:before)内容(:after)</div>
+	2、属性
+		content
+		取值：
+			1、url()
+			2、字符串：纯文本 , "",''
+			3、计数器
+	3、解决问题
+		1、浮动元素对父元素高度的影响
+			div:after{
+				content:"";
+				display:block;
+				clear:both;
+			}
+		2、外边距溢出
+			div:before{
+				content:"";
+				display:table;
+			}
+
+			div:after{
+				content:"";
+				display:table;
+			}
+	4、计数器
+		1、属性：counter-reset
+			声明：如果计数器不存在，则声明
+			复位：如果计数器已存在，则复位
+
+			语法：
+				counter-reset:名 值;
+				值可以省略，默认为0
+				counter-reset:名1 值1 名2 值2;
+			注意：
+				不能放在 使用的 元素中声明
+		2、属性：counter-increment
+			设置计数器每次出现的增量
+			语法:counter-increment:名 增量值;
+			增量值可以省略,默认为1
+			注意：
+				哪个元素使用计数器，就将增量声明在哪个元素中
+		3、函数：counter()
+			配合 :before 或 :after ，content
+			xxx:before{
+				content:counter(计数器名);
+			}
+3、多列
+	column-count:分隔列
+	column-gap:列间隔
+	column-rule:列规则
+4、CSSHack
+	1、CSSHack 的实现方式
+		1、CSS类内部Hack
+			在 属性名前 或 值后 加一些指定浏览器能识别的前后缀
+
+			* ：IE6,7
+			# ：IE6,7
+			+ ：IE6,7
+			- ：IE6
+			_ ：IE6
+			\0 : IE8,9,10
+			\9\0:IE9,10
+
+			ex:background
+
+			background:#000;
+			background:#111\0;/*IE 8*/
+			background:#222\9\0;/*IE9,10*/
+			+background:#333;/*IE7*/
+			-background:#444;/*IE6*/
+		2、选择器Hack
+			在选择器前添加 浏览器能识别的标识
+			*前缀：IE6
+				div{
+					任何浏览器都识别的div样式
+				}
+				*div{
+					只有ie6能识别的 div样式
+				}
+			*+前缀：IE7
+				*+div{
+					只有ie7能识别的 div样式
+				}
+		3、头部引用Hack
+			条件注释 判断浏览器的类型 
+			语法：
+				<!--[if 条件 IE 版本]>
+					做的操作
+				<![endif]-->
+			条件：
+				1、省略
+					判断是否为 IE 或 IE的指定版本
+				2、gt
+					大于指定版本
+				3、gte
+					大于等于指定版本
+				4、lt
+				5、lte
+				6、!

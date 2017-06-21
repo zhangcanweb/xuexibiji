@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>.....</title>
+  <meta charset="utf-8"/>
+  <style>
+	ul{width:150px;}
+	ul li li{
+		padding-right:25px;
+		background-repeat:no-repeat;
+		background-position:relative;
+	}
+  </style>
+ </head>
+ <body>
+	<ul>
+		<li>电影
+			<ol>
+				<li>爵迹</li>
+				<li>星际迷航</li>
+				<li>湄公河</li>
+			</ol>
+		</li>
+		<li>综艺
+			<ol>
+				<li>跑男</li>
+			</ol>
+		</li>
+		<li>动漫
+			<ol>
+				
+			</ol>
+		</li>
+	</ul>
+	 <script src="js/jquery-1.11.3.js"></script>
+	 <script>
+		$("ol>li:first-child").css("backgroundImage","url(img/fire.jpg)");
+		$("ol>li:last-child").css("backgroundImage","url(img/snow.jpg)");
+		$("ol>li:only-child").css("backgroundImage","url(img/only.jpg)");
+		$("ol>li:nth-child(2)").css("backgroundColor","#dfd");
+		$("ol:empty").css("backgroundImage","url(img/empty.jpg)")
+						.css("height","25");
+	 </script>
+ </body>
+</html>

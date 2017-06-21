@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+		//if(Array.prototype.indexOf===undefined)
+		//function(value.fromi){
+			//fromi===undefined&&(fromi=0);
+			//for (var i=fromi;i<this.length;i++)
+			//{
+				//this[i]===value&&return i;
+			//}
+			//return -1;
+		//}
+			//var arr=[1,2,3,2,1];
+			//document.write(
+				//arr.indexOf(2)+"<br>"+
+				//arr.indexOf(2,2)+"<br>"+
+				//arr.indexOf(2,4)+"<br>"+
+				//arr.indexOf(5)+"<br>"
+			//)
+			//if (String.prototype.indexOf===undefined)
+			//{
+				//String.prototype.trim=function(){
+					//return this.replace(/^\s+/) 
+				//}
+			//} 
+			if(Array.isArray===undefined)
+				Array.isArray=function(obj){
+					var r=Object.prototype.toString.call(obj)
+					r==[object Array]&&return ;
+				}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,472 @@
+1、表单控件
+	1、input
+		1、语法
+			<input> 或 <input/>
+			属性：
+				1、type
+					区分元素
+				2、value
+					值
+				3、name
+					名称 ， 匈牙利命名法
+				4、disabeld
+					禁用，无值
+		2、分类
+			1、文本框与密码框
+				type="text" : 文本框
+				type="password" : 密码框
+
+				属性：
+					1、maxlength 
+					2、readonly
+						无值
+			2、单选按钮 和 复选框
+				type="radio" : 单选按钮
+				type="checkbox" : 复选框
+
+				属性：
+					1、name
+						分组
+					2、checked
+						设置默认被选中
+			3、按钮
+				type="submit" : 提交按钮
+				type="reset" : 重置按钮
+				type="button" : 普通按钮
+
+				属性：
+					1、name
+					2、value
+						按钮上的文本
+
+				按钮：<button>显示文本</button>
+					button 如果放在 表单中，就是提交按钮，位于表单外，就是普通按钮
+			4、隐藏域 和 文件选择框
+				type="hidden"
+				type="file"
+				注意：
+					使用file时
+					1、method 必须为 post
+					2、enctype 必须为 multipart/form-data
+	2、textarea
+		语法：<textarea></textarea>
+		属性：
+			1、name
+				名称
+			2、cols
+				显示的列数
+			3、rows
+				显示行数
+	3、select & option 
+		选项框：下拉选项框 ， 滚动列表
+		语法
+			<select></select>
+				属性：
+					1、name
+						名称
+					2、size
+						值大于1的话则为 滚动列表 
+					3、multiple
+						实现多选，无值
+			<option></option>
+				属性：
+					1、value
+					2、selected
+	4、其他元素
+		1、为控件分组
+			<fieldset></fieldset> --分组
+			<legend></legend> --分组的标题
+		2、关联文本和控件
+			<label>文本</label>
+			属性：
+				for ：关联的控件的ID值 
+	5、其他常用标记(非表单控件)
+		1、浮动框架
+			1、作用
+				在一个浏览器窗口中，能够显示多个页面文档
+			2、语法
+				<iframe>文本</iframe>
+				
+				属性：
+					1、src
+					2、width
+					3、height
+					4、frameborder
+						取消边框，设置为0
+		2、摘要与细节
+			<details></details> --定义细节
+			<summary></summary> --定义标题
+			<details>
+				<summary>标题</summary>
+			</details>
+		3、度量元素
+			<meter>文本</meter>
+			属性：
+				1、min ：最小值，默认0
+				2、max ：最大值，默认1
+				3、value ：显示的值 
+		4、时间元素
+			<time>文本</time>
+			属性：
+				1、datetime
+		5、高亮显示
+			<mark></mark>
+2、CSS基础
+	1、什么是CSS
+		CSS:Cascading Style Sheets
+		层叠样式表 或 级联样式表 或 样式表
+	2、CSS特征
+		1、以统一的方式声明元素的样式
+		2、提高了样式的可重用性 和 可维护性 
+	3、CSS 和 HTML 的关系
+		1、HTML 负责构建网页
+		2、CSS 负责 美化网页
+
+		W3C推荐 尽量使用 css 样式属性 取代 HTML元素的属性
+	4、CSS样式表使用方式
+		1、内联方式
+			别名：内联样式 或 行内样式
+			<ANY style="若干样式声明">
+			样式声明--> 属性名:值;
+			特点：声明好的样式只能在定义的元素中使用
+		2、内部样式表
+			将样式定义在页面中，页面范围内有效
+			<head>
+				<style>
+					若干样式规则
+				</style>
+			</head>
+			样式规则：选择器，样式声明
+			选择器{
+				若干样式声明;
+			}
+			选择器：规范页面中哪些元素能够使用定义好的样式
+
+			div{
+				color:red;
+				font-size:12px;
+			}
+		3、外部样式表
+			将样式定义在 外部的 样式文件中(*.css)
+			步骤：
+				1、创建.CSS文件并且定义样式(样式规则)
+				2、在使用的页面中进行引入
+					<link rel="stylesheet" href="样式表URL">
+****************************************
+1、CSS语法
+	1、CSS样式表特征
+		1、继承性
+			大部分的样式规则和样式声明是可以被继承的
+		2、层叠性
+			可以为一个元素定义多个样式
+			不冲突时，多个样式表中的样式可以层叠为1个
+		3、优先级
+			样式定义冲突时，按照不同样式表/规则的优先级来应用样式
+			样式优先级：
+			浏览器缺省设置         低
+			外部/内部样式表        中
+				-就近原则
+			内联样式							 高
+
+			!important 规则:手动调整优先级
+			使用方式：选择器{属性:值 !important;}
+			注意： !important 尽量少用
+	2、排错
+		提示：Unknown property name
+					不知道  属性     名称
+					属性名写错了!!!!
+		提示：Invalid property value
+					未验证  属性     值
+					属性值写错了!!!!
+
+		所编写的样式 没有出现在 开发工具里的Styls中，选择器写错了!!!!
+
+		只要写完一条样式声明，后面就加 ; 作为结尾
+
+		缺少 } ，该样式规则以后的所有样式规则都没有效果显示
+2、CSS基础选择器
+	1、作用
+		规范了页面中哪些元素能够使用定义好的演示
+		目的：匹配页面元素
+	2、分类
+		1、通用选择器
+			语法: *{}
+			作用：匹配页面中的所有元素
+			ex:
+				*{
+					font-size:12px;
+				}
+			注意：尽量少用
+		2、元素选择器
+			语法：由元素名称作为选择器
+			作用：控制某元素的默认样式
+			ex
+				/*页面中所有的div 颜色为 红色*/
+				div{color:red;}
+				/*页面中所有的h1 字体大小为12px*/
+				h1{font-size:12px;}
+		3、类选择器
+			作用：负责定义 样式，可以由任意一个元素灵活引用。
+			语法：.类选择器名称{}
+				注意：类选择器名称不能以数字开头
+			ex:
+				.redColor{
+					color:red;
+				}
+			引用类选择器：由元素的class属性进行引用
+				<ANY class="类选择器名称"></ANY>
+				注意：引用时，不加 .
+			
+			多类选择器的引用方式
+				允许一个元素同时引用多个 类选择器，那么该元素也同时具备多个选择器定义的效果。
+				引用时，多个选择器，用 空格 隔开即可
+
+			分类选择器：
+				可以将 类选择器和元素选择器结合起来使用，以实现对某种元素中不同样式的细分控制
+
+				语法：元素选择器.类选择器{}
+				ex: 
+					p.redColor{} : 定义class 为 redColor 的p元素的样式 
+
+					div.bigFont{} : 定义class为bigFont的div的元素样式
+		4、id选择器
+			作用：与元素id联用，定义指定ID值的元素的样式，专属定制
+
+			语法：#id值{ ... }
+
+			#important{
+				color:red;
+			}
+
+			定义 id为 important 的元素的样式 ， 文本颜色为 红色
+			
+			div.important{}
+			#important{}
+		5、群组选择器
+			作用：以逗号隔开的选择器列表
+					将一些相同的规则用于多个元素中
+			语法：选择器1,选择器2,选择器3,...{}
+			ex:
+				#important,.redColor,span{
+					color:red;
+					background-color:black;
+				}
+				id为important和class为redColor以及所有的span元素，样式为 红色的字，黑色的背景
+		6、后代选择器
+			后代：具备层级关系的元素，被嵌套的都可以称之为 后代
+
+			作用：依据元素在其位置上的上下文关系来定义样式，也称之“包含选择器”，用于选择作为某元素的后代元素
+			语法：选择器1 选择器2{}
+			ex ： 
+				div p{}
+				匹配 所有div 中的 p元素
+				#d1 p span{}
+				匹配 id为d1的元素中 的p元素中的 span元素
+
+		7、子代选择器
+			子代：只具备一级的层级关系，被嵌套的元素称之为 子代
+			
+			要求选择器之间只能存在父子关系
+			语法：选择器1>选择器2{}
+			ex:
+				#d1>p{}
+				匹配 id为d1的元素中的下一级子级元素p
+				#d1>p>span{}
+				匹配 id为d1的元素中下一级p元素中下一级的span元素
+			子代选择器的目的不是匹配任意后代元素，而是希望缩小范围，只选择某个元素的子元素
+		8、伪类选择器
+			1、作用
+				为了匹配元素不同的状态的。
+			2、语法
+				使用 :声明选择器
+				:伪类选择器{}
+
+				常用场合：
+				选择器:伪类选择器{}
+			3、分类
+				1、链接伪类
+					1、:link : 适用于尚未访问的超链接
+					2、:visited : 适用于访问过的超链接
+				2、动态伪类
+					1、:hover : 适用于悬停在HTML元素时
+					2、:active : 适用于HTML元素被激活时
+					3、:focus : 适用于HTML元素获取焦点时
+				3、目标伪类
+				4、元素状态伪类
+				5、结构伪类
+				6、否定伪类
+			4、使用最多的方式
+				元素的 样式设置 配合着 :hover 一起使用
+3、尺寸与边框	
+	1、CSS单位
+		1、尺寸单位
+			1、%
+				相对单位
+				宽度：50%
+				相对于它的父层元素的宽度的50%
+			2、in
+				英寸
+				1in = 2.54cm
+			3、cm
+			4、mm
+			5、px
+				像素，计算机屏幕上的一个小方点
+				1024*768 
+				1920*1280
+			6、pt
+				磅
+				1pt=1/72in
+				多数修饰 文字大小居多
+			7、em
+				1em 相当于当前字体的尺寸
+				2em 相当于当前字体尺寸的2倍
+				响应式布局中，使用居多
+		2、颜色单位(取值)
+			1、rgb(r,g,b)
+				r:red (0~255)
+				g:green(0~255)
+				b:blue(0~255)
+
+				rgb(0,0,0) : 黑色
+				rgb(255,255,255) : 白色
+				rgb(128,65,12) :
+			2、rgb(r%,g%,b%)
+			3、rgba(r,g,b,alpha)
+				alpha:0~1 之间的数字
+			4、#rrggbb
+				通过 6位16进制的数字表示颜色
+				十六进制：0~9 A~F 
+					A:10
+					B:11
+					C:12
+					D:13
+					E:14
+					F:15
+			5、#rgb
+				#rrggbb的缩写,每两位一致时，可以用缩写表示
+				#000000 --> #000
+				#ff55cc --> #f5c
+			6、英文单词
+	2、尺寸属性
+		1 、什么是尺寸
+			设置元素的 宽度和高度
+			尺寸单位一般为 像素或百分比
+		2 、宽度属性
+			属性：
+				1、width
+				2、min-width
+				3、max-width
+				注意：min-width/max-width 不能与 width 联用，如果同时设置以width 为准
+
+				在css中，所有的数值不能省略单位的
+		3 、高度属性
+			属性：
+				1、height
+				2、min-height
+				3、max-height
+
+		4、哪些元素能够设置 尺寸属性
+			1、块级元素都可以设置
+				div,p,h1,h6,ul,ol,li,dl,dt,dd
+			2、存在width，height属性的html元素
+				img，table，
+				input
+					type="text"
+					type="password"
+					type="button/submit/reset"
+				... ...
+
+			3、不能修改 尺寸属性
+				大部分的行内元素:span,i,s,u,b,sup,sub
+				input
+					type="radio/checkbox"
+		5、溢出处理
+			1、什么是溢出
+				使用尺寸属性控制元素大小时，如果内容所需的空间大于元素的控件，会导致内容溢出。
+			2、溢出处理属性
+				属性：
+					overflow
+					overflow-x : 横向溢出处理
+					overflow-y : 纵向溢出处理
+				取值：
+					1、visible
+						可见的(默认值)
+					2、hidden
+						溢出隐藏
+					3、scroll
+						元素显示滚动条，内容溢出，滚动条可用
+					4、auto
+						自动
+						溢出时显示滚动条，不溢出则没有滚动 条
+	3、边框属性
+		1、边框
+			1、简写方式
+				border:width style color;
+					width:宽度
+					style:边框线条样式
+						取值：
+							solid ：实线
+							dotted ：虚线
+							dashed ：虚线
+					color:颜色
+						还可以取值为 transparent（透明）
+				简写方式：定义四条边框的 宽度，样式，颜色
+			2、单边定义
+				语法：border-方向:width style color;
+					方向：top/right/bottom/left
+								上  右    下     左
+				ex:
+					border-top:2px solid #ddd;
+			3、单属性定义
+				语法：border-属性:值;
+					属性: width/style/color
+				ex: border-color:#0f0;
+			4、单边单属性定义
+				语法：border-方向-属性:值;
+					ex:
+						border-top-color:#000;
+						上边框颜色：#000;
+
+						border-left-style:dotted;
+						左边框的样式为 ：虚线
+		2、边框倒角
+			倒角：直角倒成圆角
+			属性：border-radius
+			作用：简写属性，从左上角开始，按顺时针顺序设置四个角的倒角半径,最少1个值，最多4个值
+			取值：可以是具体数值，也可以是%
+
+			单独定义：
+				border-top-left-radius:左上角倒角
+				border-bottom-right-radius:右下
+				border-top-right-radius:右上
+				border-bottom-left-radius:左下
+		3、边框阴影
+			属性：box-shadow
+			取值：由多个属性值组成的列表
+				h-shadow v-shadow blur spread color inset;
+				h-shadow:必须，阴影水平偏移距离，取值为正，向右偏，取值为负，向左偏
+				v-shadow:必须，阴影垂直偏移距离，取值为正，向下偏，取值为负，向上偏
+				blur:可选，模糊距离
+				spread:可选，阴影尺寸，原有的大小上，增加指定像素大小
+				color:可选，颜色
+				inset:可选值，将默认的外阴影(outset)改为内阴影
+		4、轮廓
+			1、什么是轮廓
+				绘制于元素周围的一条线，位于边框之外  
+			2、属性
+				outline:width style color;
+				outline-width:轮廓的宽度
+				outline-style:轮廓的样式
+				outline-color:轮廓的颜色
+			3、常用方式
+				outline:0; //取消轮廓
+				outline:none;//取消轮廓
+
+				border:0; //取消边框
+				border:none;//取消边框 
+4、每日一练：
+	在练习的基础上，增加以下效果：
+	1、为每副图像设置一个倒角 - 5px
+	2、在鼠标悬停时，为每副图增加边框，2px solid red
+	3、处理第二个问题时(鼠标悬停时)，不希望看到图像会有任何的位置变化
+		

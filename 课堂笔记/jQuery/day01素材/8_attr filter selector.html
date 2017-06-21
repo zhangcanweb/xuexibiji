@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <style>
+	.tabs{
+		list-style:none;
+		padding:0;
+	}
+	.tabs>li{
+		float:left;
+		border-bottom:2px solid #aaa;
+	}
+	.tabs>li>a{
+		text-decoration:none;
+		color:#000;
+		padding:6px 12px;
+	}
+	.tabs>.active{
+		border:2px solid #aaa;
+		border-bottom:none;
+	}
+  </style>
+ </head>
+ <body>
+ <h1>使用属性选择器实现标签页头的切换</h1>
+	<ul class="tabs">
+		<li class="active"><a href="#" data-toggle="tab">10元套餐</a></li>
+		<li><a href="#" data-toggle="tab">20元套餐</a></li>
+		<li><a href="#" data-toggle="tab">30元套餐</a></li>
+	</ul>
+	 <script src="js/jquery-1.11.3.js"></script>
+	 <script>
+		$("a[data-toggle='tab']").click(function(){
+			$(".tabs>li.active").removeClass("active");
+			$(this).parent().addClass("active");
+		});
+	 </script>
+ </body>
+</html>

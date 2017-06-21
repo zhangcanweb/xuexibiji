@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>用户注册</h1>
+		<h3>异步验证用户名是否存在——发起异步POST请求</h3>
+		<form action="">
+			用户名：<input id="uname"><span id="unameMsg"></span><br>
+			密码名：<input ><br>
+			<input type="button" value="注册用户">
+		</form>
+
+		<script>
+		uname.onblur = function(){
+			//用户名输入框失去焦点，读取其中的输入，异步提交给服务器执行验证
+			var n = this.value;
+			if(!n){
+				return;  //用户没有输入任何内容，无需验证
+			}
+			//1 创建XHR
+			var xhr = new XMLHttpRequest();
+			//2 监听状态改变	
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState===4){ //响应消息接收完成
+					if(xhr.status===200){ 
+						doResponse(xhr);//响应完成且成功
+					}else{
+						alert('响应完成但有错误');
+					}
+				}
+			}
+			//3 打开连接
+			xhr.open('POST','10_check_uname.php',true);
+			//3.5 修改请求消息头部
+			xhr.setRequestHeader('Content-Type',  'application/x-www-form-urlencoded');
+			//4 发送GET请求
+			xhr.send('uname='+n); //k=v&k=v
+		}
+		function doResponse(xhr){  //处理响应消息
+			console.log('开始处理响应消息');
+			console.log(xhr);
+
+			if(xhr.responseText==='cunzai'){
+				unameMsg.style.color = '#a00';
+				unameMsg.innerHTML = '该用户名已被占用！';
+			}else if(xhr.responseText==='bucunzai'){
+				unameMsg.style.color = '#0a0';
+				unameMsg.innerHTML = '该用户名可以使用！';
+			}else {
+				alert('不可识别的响应消息主体');
+			}
+		}
+		
+		</script>
+	</body>
+</html>
